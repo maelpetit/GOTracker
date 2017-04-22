@@ -2365,7 +2365,7 @@
 
 		{
 			"number": "029",
-			"name": "nidoran ♀",
+			"name": "nidoran-f",
 			"generation": "generation i",
 			"about": "nidoran♀ has barbs that secrete a powerful poison. they are thought to have developed as protection for this small-bodied pokémon. when enraged, it releases a horrible toxin from its horn.",
 			"types": 
@@ -2630,7 +2630,7 @@
 
 		{
 			"number": "032",
-			"name": "nidoran ♂",
+			"name": "nidoran-m",
 			"generation": "generation i",
 			"about": "nidoran♂ has developed muscles for moving its ears. thanks to them, the ears can be freely moved in any direction. even the slightest sound does not escape this pokémon's notice.",
 			"types": 

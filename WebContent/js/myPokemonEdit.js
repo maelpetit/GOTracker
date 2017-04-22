@@ -48,7 +48,7 @@ $(function() {
 		var select = document.getElementById("mypokemons");
 		var option = document.createElement("option");
 		option.value = poke.pokemonID;
-		option.text = capitalizeFirstLetter(poke.name);
+		option.text = '#' + poke.pokemonID + ' ' + capitalizeFirstLetter(poke.name);
 		select.add(option);
 	}
 
