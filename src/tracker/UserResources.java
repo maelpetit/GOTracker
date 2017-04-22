@@ -26,7 +26,9 @@ public class UserResources {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<User> getUsers(){
-		return UserList.getInstance().getUsers();
+		List<User> userList = UserList.getInstance().getUsers();
+		Database.closeMongoClient();
+		return userList;
 	}
 	
 	@Path("/{login}")
@@ -35,6 +37,7 @@ public class UserResources {
 	public Response getUser(@PathParam("login") String login){
 		User user = UserList.getInstance().getUser(login);
 		Response response = Response.status(Response.Status.OK).entity(user).build();
+		Database.closeMongoClient();
 		return response;
 	}
 	
@@ -55,7 +58,7 @@ public class UserResources {
 			}
 		}
 		DatabaseUpdater.editPokedex(login, myPokemon);
-		
+		Database.closeMongoClient();
 	}
 	
 	@Path("/{login}/pokedex/{number}")
@@ -64,6 +67,7 @@ public class UserResources {
 	public MyPokemon getMyPokemon(@PathParam("login") String login, @PathParam("number") String pokemonID){
 		User user = UserList.getInstance().getUser(login);
 		MyPokemon myPokemon = user.getMyPokemon(pokemonID);
+		Database.closeMongoClient();
 		return myPokemon;
 	}
 	
@@ -73,17 +77,20 @@ public class UserResources {
 	public Response authentication(JAXBElement<Authentication> authJAXB){
 		Authentication auth = authJAXB.getValue();
 		User user = UserList.getInstance().getUser(auth.getLogin());
+		Response response;
 		if(user == null){
 			System.out.println("NOT_FOUND");
-			return Response.status(Response.Status.NOT_FOUND).build();
+			response = Response.status(Response.Status.NOT_FOUND).build();
 		}
 		if(user.samePassword(auth.getPassword())){
 			System.out.println("ACCEPTED");
-			return Response.status(Response.Status.ACCEPTED).build();
+			response = Response.status(Response.Status.ACCEPTED).build();
 		}else{
 			System.out.println("UNAUTHORIZED");
-			return Response.status(Response.Status.UNAUTHORIZED).build();
+			response = Response.status(Response.Status.UNAUTHORIZED).build();
 		}
+		Database.closeMongoClient();
+		return response;
 		
 	}
 

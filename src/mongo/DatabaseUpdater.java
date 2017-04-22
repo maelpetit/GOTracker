@@ -13,6 +13,13 @@ import pokemons.FavPokemon;
 import pokemons.MyPokemon;
 
 public class DatabaseUpdater {
+	
+	public static void updateMovesAndPokemons() throws FileNotFoundException{
+		updateQuickMoves();
+		updateChargeMoves();
+		updatePokemons();
+		Database.closeMongoClient();
+	}
 
 	@SuppressWarnings("unchecked")
 	public static void updateQuickMoves() throws FileNotFoundException{
@@ -111,7 +118,6 @@ public class DatabaseUpdater {
 		//updateQuickMoves();
 		//updateChargeMoves();
 		updatePokemons();
-		Database.closeMongoClient();
 	}
 
 

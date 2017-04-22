@@ -63,6 +63,7 @@ public class PokemonsAndMoves {
 	public void _init(){
 		instanciateAllMovesFromDB();
 		instanciateAllPokemonsFromDB();
+		Database.closeMongoClient();
 	}
 	
 	@SuppressWarnings("unchecked")

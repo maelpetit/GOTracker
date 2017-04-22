@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import mongo.Database;
 import mongo.PokemonsAndMoves;
 import pokemons.moves.ChargeMove;
 import pokemons.moves.Move;
@@ -22,6 +23,7 @@ public class MoveResources {
 		List<Move> moves = new ArrayList<>();
 		moves.addAll(PokemonsAndMoves.getInstance().getQuickmoves());
 		moves.addAll(PokemonsAndMoves.getInstance().getChargemoves());
+		Database.closeMongoClient();
 		return moves;
 	}
 	
@@ -29,14 +31,18 @@ public class MoveResources {
 	@GET
 	@Produces({MediaType.APPLICATION_XML})
 	public List<QuickMove> getQuickMoves(){
-		return PokemonsAndMoves.getInstance().getQuickmoves();
+		List<QuickMove> moveList = PokemonsAndMoves.getInstance().getQuickmoves();
+		Database.closeMongoClient();
+		return moveList;
 	}
 	
 	@Path("/charge")
 	@GET
 	@Produces({MediaType.APPLICATION_XML})
 	public List<ChargeMove> getChargeMoves(){
-		return PokemonsAndMoves.getInstance().getChargemoves();
+		List<ChargeMove> moveList = PokemonsAndMoves.getInstance().getChargemoves();
+		Database.closeMongoClient();
+		return moveList;
 	}
 
 }
