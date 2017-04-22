@@ -1,0 +1,535 @@
+{
+	"quickmoves": 
+	[
+		{
+			"dps": 13.75,
+			"move name": "steel wing",
+			"type": "steel",
+			"power": 11,
+			"duration (ms)": 800,
+			"energy gain": 7.5
+		},
+
+		{
+			"dps": 13.64,
+			"move name": "iron tail",
+			"type": "steel",
+			"power": 15,
+			"duration (ms)": 1100,
+			"energy gain": 6.36
+		},
+
+		{
+			"dps": 13.64,
+			"move name": "dragon tail",
+			"type": "dragon",
+			"power": 15,
+			"duration (ms)": 1100,
+			"energy gain": 8.18
+		},
+
+		{
+			"dps": 13.33,
+			"move name": "rock throw",
+			"type": "rock",
+			"power": 12,
+			"duration (ms)": 900,
+			"energy gain": 7.78
+		},
+
+		{
+			"dps": 13.33,
+			"move name": "counter",
+			"type": "fighting",
+			"power": 12,
+			"duration (ms)": 900,
+			"energy gain": 8.89
+		},
+
+		{
+			"dps": 13,
+			"move name": "razor leaf",
+			"type": "grass",
+			"power": 13,
+			"duration (ms)": 1000,
+			"energy gain": 7
+		},
+
+		{
+			"dps": 12.86,
+			"move name": "shadow claw",
+			"type": "ghost",
+			"power": 9,
+			"duration (ms)": 700,
+			"energy gain": 8.57
+		},
+
+		{
+			"dps": 12.73,
+			"move name": "fire spin",
+			"type": "fire",
+			"power": 14,
+			"duration (ms)": 1100,
+			"energy gain": 9.09
+		},
+
+		{
+			"dps": 12.5,
+			"move name": "confusion",
+			"type": "psychic",
+			"power": 20,
+			"duration (ms)": 1600,
+			"energy gain": 9.38
+		},
+
+		{
+			"dps": 12.5,
+			"move name": "poison jab",
+			"type": "poison",
+			"power": 10,
+			"duration (ms)": 800,
+			"energy gain": 8.75
+		},
+
+		{
+			"dps": 12.22,
+			"move name": "fire fang",
+			"type": "fire",
+			"power": 11,
+			"duration (ms)": 900,
+			"energy gain": 8.89
+		},
+
+		{
+			"dps": 12,
+			"move name": "dragon breath",
+			"type": "dragon",
+			"power": 6,
+			"duration (ms)": 500,
+			"energy gain": 8
+		},
+
+		{
+			"dps": 12,
+			"move name": "scratch",
+			"type": "normal",
+			"power": 6,
+			"duration (ms)": 500,
+			"energy gain": 8
+		},
+
+		{
+			"dps": 12,
+			"move name": "bite",
+			"type": "dark",
+			"power": 6,
+			"duration (ms)": 500,
+			"energy gain": 8
+		},
+
+		{
+			"dps": 11.67,
+			"move name": "vine whip",
+			"type": "grass",
+			"power": 7,
+			"duration (ms)": 600,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 11.67,
+			"move name": "pound",
+			"type": "normal",
+			"power": 7,
+			"duration (ms)": 600,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 11.67,
+			"move name": "air slash",
+			"type": "flying",
+			"power": 14,
+			"duration (ms)": 1200,
+			"energy gain": 8.33
+		},
+
+		{
+			"dps": 11.54,
+			"move name": "rock smash",
+			"type": "fighting",
+			"power": 15,
+			"duration (ms)": 1300,
+			"energy gain": 7.69
+		},
+
+		{
+			"dps": 11.43,
+			"move name": "metal claw",
+			"type": "steel",
+			"power": 8,
+			"duration (ms)": 700,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 11.25,
+			"move name": "acid",
+			"type": "poison",
+			"power": 9,
+			"duration (ms)": 800,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 11.11,
+			"move name": "frost breath",
+			"type": "ice",
+			"power": 10,
+			"duration (ms)": 900,
+			"energy gain": 8.89
+		},
+
+		{
+			"dps": 11.11,
+			"move name": "feint attack",
+			"type": "dark",
+			"power": 10,
+			"duration (ms)": 900,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10.91,
+			"move name": "extrasensory",
+			"type": "psychic",
+			"power": 12,
+			"duration (ms)": 1100,
+			"energy gain": 10.91
+		},
+
+		{
+			"dps": 10.91,
+			"move name": "zen headbutt",
+			"type": "psychic",
+			"power": 12,
+			"duration (ms)": 1100,
+			"energy gain": 9.09
+		},
+
+		{
+			"dps": 10.91,
+			"move name": "snarl",
+			"type": "dark",
+			"power": 12,
+			"duration (ms)": 1100,
+			"energy gain": 10.91
+		},
+
+		{
+			"dps": 10.71,
+			"move name": "mud slap",
+			"type": "ground",
+			"power": 15,
+			"duration (ms)": 1400,
+			"energy gain": 8.57
+		},
+
+		{
+			"dps": 10,
+			"move name": "ice shard",
+			"type": "ice",
+			"power": 12,
+			"duration (ms)": 1200,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "karate chop",
+			"type": "fighting",
+			"power": 8,
+			"duration (ms)": 800,
+			"energy gain": 12.5
+		},
+
+		{
+			"dps": 10,
+			"move name": "low kick",
+			"type": "fighting",
+			"power": 6,
+			"duration (ms)": 600,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "bullet punch",
+			"type": "steel",
+			"power": 9,
+			"duration (ms)": 900,
+			"energy gain": 11.11
+		},
+
+		{
+			"dps": 10,
+			"move name": "hidden power",
+			"type": "normal",
+			"power": 15,
+			"duration (ms)": 1500,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "bubble",
+			"type": "water",
+			"power": 12,
+			"duration (ms)": 1200,
+			"energy gain": 11.67
+		},
+
+		{
+			"dps": 10,
+			"move name": "water gun blastoise",
+			"type": "water",
+			"power": 10,
+			"duration (ms)": 1000,
+			"energy gain": 6
+		},
+
+		{
+			"dps": 10,
+			"move name": "cut",
+			"type": "normal",
+			"power": 5,
+			"duration (ms)": 500,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "water gun",
+			"type": "water",
+			"power": 5,
+			"duration (ms)": 500,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "tackle",
+			"type": "normal",
+			"power": 5,
+			"duration (ms)": 500,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "lick",
+			"type": "ghost",
+			"power": 5,
+			"duration (ms)": 500,
+			"energy gain": 12
+		},
+
+		{
+			"dps": 10,
+			"move name": "quick attack",
+			"type": "normal",
+			"power": 8,
+			"duration (ms)": 800,
+			"energy gain": 12.5
+		},
+
+		{
+			"dps": 10,
+			"move name": "sucker punch",
+			"type": "dark",
+			"power": 7,
+			"duration (ms)": 700,
+			"energy gain": 11.43
+		},
+
+		{
+			"dps": 10,
+			"move name": "struggle bug",
+			"type": "bug",
+			"power": 15,
+			"duration (ms)": 1500,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "bug bite",
+			"type": "bug",
+			"power": 5,
+			"duration (ms)": 500,
+			"energy gain": 12
+		},
+
+		{
+			"dps": 10,
+			"move name": "peck",
+			"type": "flying",
+			"power": 10,
+			"duration (ms)": 1000,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 10,
+			"move name": "wing attack",
+			"type": "flying",
+			"power": 8,
+			"duration (ms)": 800,
+			"energy gain": 11.25
+		},
+
+		{
+			"dps": 10,
+			"move name": "ember",
+			"type": "fire",
+			"power": 10,
+			"duration (ms)": 1000,
+			"energy gain": 10
+		},
+
+		{
+			"dps": 9.09,
+			"move name": "infestation",
+			"type": "bug",
+			"power": 10,
+			"duration (ms)": 1100,
+			"energy gain": 12.73
+		},
+
+		{
+			"dps": 8.7,
+			"move name": "volt switch",
+			"type": "electric",
+			"power": 20,
+			"duration (ms)": 2300,
+			"energy gain": 10.87
+		},
+
+		{
+			"dps": 8.57,
+			"move name": "spark",
+			"type": "electric",
+			"power": 6,
+			"duration (ms)": 700,
+			"energy gain": 12.86
+		},
+
+		{
+			"dps": 8.33,
+			"move name": "mud shot",
+			"type": "ground",
+			"power": 5,
+			"duration (ms)": 600,
+			"energy gain": 11.67
+		},
+
+		{
+			"dps": 8.33,
+			"move name": "hex",
+			"type": "ghost",
+			"power": 10,
+			"duration (ms)": 1200,
+			"energy gain": 12.5
+		},
+
+		{
+			"dps": 8.33,
+			"move name": "psycho cut",
+			"type": "psychic",
+			"power": 5,
+			"duration (ms)": 600,
+			"energy gain": 13.33
+		},
+
+		{
+			"dps": 8.33,
+			"move name": "poison sting",
+			"type": "poison",
+			"power": 5,
+			"duration (ms)": 600,
+			"energy gain": 11.67
+		},
+
+		{
+			"dps": 8.33,
+			"move name": "thunder shock",
+			"type": "electric",
+			"power": 5,
+			"duration (ms)": 600,
+			"energy gain": 13.33
+		},
+
+		{
+			"dps": 7.5,
+			"move name": "fury cutter",
+			"type": "bug",
+			"power": 3,
+			"duration (ms)": 400,
+			"energy gain": 15
+		},
+
+		{
+			"dps": 7.27,
+			"move name": "bullet seed",
+			"type": "grass",
+			"power": 8,
+			"duration (ms)": 1100,
+			"energy gain": 12.73
+		},
+
+		{
+			"dps": 7.27,
+			"move name": "astonish",
+			"type": "ghost",
+			"power": 8,
+			"duration (ms)": 1100,
+			"energy gain": 12.73
+		},
+
+		{
+			"dps": 7.27,
+			"move name": "charge beam",
+			"type": "electric",
+			"power": 8,
+			"duration (ms)": 1100,
+			"energy gain": 13.64
+		},
+
+		{
+			"dps": 6,
+			"move name": "powder snow",
+			"type": "ice",
+			"power": 6,
+			"duration (ms)": 1000,
+			"energy gain": 15
+		},
+
+		{
+			"dps": 0,
+			"move name": "transform",
+			"type": "normal",
+			"power": 0,
+			"duration (ms)": 2230,
+			"energy gain": 0
+		},
+
+		{
+			"dps": 0,
+			"move name": "splash",
+			"type": "water",
+			"power": 0,
+			"duration (ms)": 1730,
+			"energy gain": 11.56
+		}
+	]
+}

@@ -1,0 +1,13 @@
+[
+	{
+		"login" : "martin",
+		"username" : "Troncheur",
+		"role" : "",
+		"password" : "",
+		"pokedex" :  "pokedex/martin.json"
+	},
+	{
+		"login" : "mael"
+	}
+]
+

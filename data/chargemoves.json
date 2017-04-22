@@ -1,0 +1,1066 @@
+{
+	"chargemoves": 
+	[
+		{
+			"dps": 45,
+			"move name": "brave bird",
+			"type": "flying",
+			"power": 90,
+			"duration (ms)": 2000,
+			"dpe": 90
+		},
+
+		{
+			"dps": 44.44,
+			"move name": "futuresight",
+			"type": "psychic",
+			"power": 120,
+			"duration (ms)": 2700,
+			"dpe": 120
+		},
+
+		{
+			"dps": 43.48,
+			"move name": "close combat",
+			"type": "fighting",
+			"power": 100,
+			"duration (ms)": 2300,
+			"dpe": 100
+		},
+
+		{
+			"dps": 43.48,
+			"move name": "stone edge",
+			"type": "rock",
+			"power": 100,
+			"duration (ms)": 2300,
+			"dpe": 100
+		},
+
+		{
+			"dps": 42.31,
+			"move name": "petal blizzard",
+			"type": "grass",
+			"power": 110,
+			"duration (ms)": 2600,
+			"dpe": 110
+		},
+
+		{
+			"dps": 41.94,
+			"move name": "blizzard",
+			"type": "ice",
+			"power": 130,
+			"duration (ms)": 3100,
+			"dpe": 130
+		},
+
+		{
+			"dps": 41.94,
+			"move name": "gunk shot",
+			"type": "poison",
+			"power": 130,
+			"duration (ms)": 3100,
+			"dpe": 130
+		},
+
+		{
+			"dps": 41.67,
+			"move name": "thunder",
+			"type": "electric",
+			"power": 100,
+			"duration (ms)": 2400,
+			"dpe": 100
+		},
+
+		{
+			"dps": 40.91,
+			"move name": "megahorn",
+			"type": "bug",
+			"power": 90,
+			"duration (ms)": 2200,
+			"dpe": 90
+		},
+
+		{
+			"dps": 40.74,
+			"move name": "hurricane",
+			"type": "flying",
+			"power": 110,
+			"duration (ms)": 2700,
+			"dpe": 110
+		},
+
+		{
+			"dps": 40,
+			"move name": "focus blast",
+			"type": "fighting",
+			"power": 140,
+			"duration (ms)": 3500,
+			"dpe": 140
+		},
+
+		{
+			"dps": 40,
+			"move name": "overheat",
+			"type": "fire",
+			"power": 160,
+			"duration (ms)": 4000,
+			"dpe": 160
+		},
+
+		{
+			"dps": 39.47,
+			"move name": "hyper beam",
+			"type": "normal",
+			"power": 150,
+			"duration (ms)": 3800,
+			"dpe": 150
+		},
+
+		{
+			"dps": 39.39,
+			"move name": "hydro pump",
+			"type": "water",
+			"power": 130,
+			"duration (ms)": 3300,
+			"dpe": 130
+		},
+
+		{
+			"dps": 37.84,
+			"move name": "zap cannon",
+			"type": "electric",
+			"power": 140,
+			"duration (ms)": 3700,
+			"dpe": 140
+		},
+
+		{
+			"dps": 37.04,
+			"move name": "flash cannon",
+			"type": "steel",
+			"power": 100,
+			"duration (ms)": 2700,
+			"dpe": 100
+		},
+
+		{
+			"dps": 36.73,
+			"move name": "solar beam",
+			"type": "grass",
+			"power": 180,
+			"duration (ms)": 4900,
+			"dpe": 180
+		},
+
+		{
+			"dps": 35.71,
+			"move name": "psychic",
+			"type": "psychic",
+			"power": 100,
+			"duration (ms)": 2800,
+			"dpe": 100
+		},
+
+		{
+			"dps": 35,
+			"move name": "foul play",
+			"type": "dark",
+			"power": 70,
+			"duration (ms)": 2000,
+			"dpe": 140
+		},
+
+		{
+			"dps": 35,
+			"move name": "sky attack",
+			"type": "flying",
+			"power": 70,
+			"duration (ms)": 2000,
+			"dpe": 140
+		},
+
+		{
+			"dps": 34.78,
+			"move name": "sludge bomb",
+			"type": "poison",
+			"power": 80,
+			"duration (ms)": 2300,
+			"dpe": 160
+		},
+
+		{
+			"dps": 34.62,
+			"move name": "grass knot",
+			"type": "grass",
+			"power": 90,
+			"duration (ms)": 2600,
+			"dpe": 180
+		},
+
+		{
+			"dps": 34.62,
+			"move name": "power whip",
+			"type": "grass",
+			"power": 90,
+			"duration (ms)": 2600,
+			"dpe": 180
+		},
+
+		{
+			"dps": 34.62,
+			"move name": "wild charge",
+			"type": "electric",
+			"power": 90,
+			"duration (ms)": 2600,
+			"dpe": 180
+		},
+
+		{
+			"dps": 34.38,
+			"move name": "sludge wave",
+			"type": "poison",
+			"power": 110,
+			"duration (ms)": 3200,
+			"dpe": 110
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "fire blast",
+			"type": "fire",
+			"power": 140,
+			"duration (ms)": 4200,
+			"dpe": 140
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "avalanche",
+			"type": "ice",
+			"power": 90,
+			"duration (ms)": 2700,
+			"dpe": 180
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "dynamic punch",
+			"type": "fighting",
+			"power": 90,
+			"duration (ms)": 2700,
+			"dpe": 180
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "heavy slam",
+			"type": "steel",
+			"power": 70,
+			"duration (ms)": 2100,
+			"dpe": 140
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "cross chop",
+			"type": "fighting",
+			"power": 50,
+			"duration (ms)": 1500,
+			"dpe": 100
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "earthquake",
+			"type": "ground",
+			"power": 120,
+			"duration (ms)": 3600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "moonblast",
+			"type": "fairy",
+			"power": 130,
+			"duration (ms)": 3900,
+			"dpe": 130
+		},
+
+		{
+			"dps": 33.33,
+			"move name": "shadow ball",
+			"type": "ghost",
+			"power": 100,
+			"duration (ms)": 3000,
+			"dpe": 200
+		},
+
+		{
+			"dps": 32.35,
+			"move name": "stomp",
+			"type": "normal",
+			"power": 55,
+			"duration (ms)": 1700,
+			"dpe": 110
+		},
+
+		{
+			"dps": 32,
+			"move name": "hyper fang",
+			"type": "normal",
+			"power": 80,
+			"duration (ms)": 2500,
+			"dpe": 160
+		},
+
+		{
+			"dps": 32,
+			"move name": "thunderbolt",
+			"type": "electric",
+			"power": 80,
+			"duration (ms)": 2500,
+			"dpe": 160
+		},
+
+		{
+			"dps": 31.82,
+			"move name": "flamethrower",
+			"type": "fire",
+			"power": 70,
+			"duration (ms)": 2200,
+			"dpe": 140
+		},
+
+		{
+			"dps": 31.67,
+			"move name": "heat wave",
+			"type": "fire",
+			"power": 95,
+			"duration (ms)": 3000,
+			"dpe": 95
+		},
+
+		{
+			"dps": 31.58,
+			"move name": "iron head",
+			"type": "steel",
+			"power": 60,
+			"duration (ms)": 1900,
+			"dpe": 120
+		},
+
+		{
+			"dps": 31.03,
+			"move name": "play rough",
+			"type": "fairy",
+			"power": 90,
+			"duration (ms)": 2900,
+			"dpe": 180
+		},
+
+		{
+			"dps": 29.63,
+			"move name": "rock slide",
+			"type": "rock",
+			"power": 80,
+			"duration (ms)": 2700,
+			"dpe": 160
+		},
+
+		{
+			"dps": 29.41,
+			"move name": "dragon claw",
+			"type": "dragon",
+			"power": 50,
+			"duration (ms)": 1700,
+			"dpe": 150
+		},
+
+		{
+			"dps": 29.17,
+			"move name": "leaf blade",
+			"type": "grass",
+			"power": 70,
+			"duration (ms)": 2400,
+			"dpe": 210
+		},
+
+		{
+			"dps": 28.57,
+			"move name": "drill run",
+			"type": "ground",
+			"power": 80,
+			"duration (ms)": 2800,
+			"dpe": 160
+		},
+
+		{
+			"dps": 28.57,
+			"move name": "dazzling gleam",
+			"type": "fairy",
+			"power": 100,
+			"duration (ms)": 3500,
+			"dpe": 200
+		},
+
+		{
+			"dps": 28.21,
+			"move name": "outrage",
+			"type": "dragon",
+			"power": 110,
+			"duration (ms)": 3900,
+			"dpe": 220
+		},
+
+		{
+			"dps": 28.13,
+			"move name": "x scissor",
+			"type": "bug",
+			"power": 45,
+			"duration (ms)": 1600,
+			"dpe": 135
+		},
+
+		{
+			"dps": 27.59,
+			"move name": "power gem",
+			"type": "rock",
+			"power": 80,
+			"duration (ms)": 2900,
+			"dpe": 160
+		},
+
+		{
+			"dps": 27.27,
+			"move name": "ice beam",
+			"type": "ice",
+			"power": 90,
+			"duration (ms)": 3300,
+			"dpe": 180
+		},
+
+		{
+			"dps": 27.27,
+			"move name": "submission",
+			"type": "fighting",
+			"power": 60,
+			"duration (ms)": 2200,
+			"dpe": 120
+		},
+
+		{
+			"dps": 26.92,
+			"move name": "flame burst",
+			"type": "fire",
+			"power": 70,
+			"duration (ms)": 2600,
+			"dpe": 140
+		},
+
+		{
+			"dps": 26.67,
+			"move name": "cross poison",
+			"type": "poison",
+			"power": 40,
+			"duration (ms)": 1500,
+			"dpe": 120
+		},
+
+		{
+			"dps": 26.67,
+			"move name": "dark pulse",
+			"type": "dark",
+			"power": 80,
+			"duration (ms)": 3000,
+			"dpe": 160
+		},
+
+		{
+			"dps": 26.32,
+			"move name": "ice punch",
+			"type": "ice",
+			"power": 50,
+			"duration (ms)": 1900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 26.32,
+			"move name": "rest",
+			"type": "normal",
+			"power": 50,
+			"duration (ms)": 1900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 26.32,
+			"move name": "aqua tail",
+			"type": "water",
+			"power": 50,
+			"duration (ms)": 1900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 26.32,
+			"move name": "body slam",
+			"type": "normal",
+			"power": 50,
+			"duration (ms)": 1900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 26.19,
+			"move name": "seed bomb",
+			"type": "grass",
+			"power": 55,
+			"duration (ms)": 2100,
+			"dpe": 165
+		},
+
+		{
+			"dps": 26.09,
+			"move name": "drill peck",
+			"type": "flying",
+			"power": 60,
+			"duration (ms)": 2300,
+			"dpe": 180
+		},
+
+		{
+			"dps": 26.09,
+			"move name": "brine",
+			"type": "water",
+			"power": 60,
+			"duration (ms)": 2300,
+			"dpe": 120
+		},
+
+		{
+			"dps": 26,
+			"move name": "discharge",
+			"type": "electric",
+			"power": 65,
+			"duration (ms)": 2500,
+			"dpe": 195
+		},
+
+		{
+			"dps": 25.86,
+			"move name": "signal beam",
+			"type": "bug",
+			"power": 75,
+			"duration (ms)": 2900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 25,
+			"move name": "thunder punch",
+			"type": "electric",
+			"power": 45,
+			"duration (ms)": 1800,
+			"dpe": 135
+		},
+
+		{
+			"dps": 25,
+			"move name": "fire punch",
+			"type": "fire",
+			"power": 55,
+			"duration (ms)": 2200,
+			"dpe": 165
+		},
+
+		{
+			"dps": 25,
+			"move name": "dragon pulse",
+			"type": "dragon",
+			"power": 90,
+			"duration (ms)": 3600,
+			"dpe": 180
+		},
+
+		{
+			"dps": 25,
+			"move name": "brick break",
+			"type": "fighting",
+			"power": 40,
+			"duration (ms)": 1600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 25,
+			"move name": "bone club",
+			"type": "ground",
+			"power": 40,
+			"duration (ms)": 1600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 25,
+			"move name": "magnet bomb",
+			"type": "steel",
+			"power": 70,
+			"duration (ms)": 2800,
+			"dpe": 210
+		},
+
+		{
+			"dps": 24.32,
+			"move name": "bug buzz",
+			"type": "bug",
+			"power": 90,
+			"duration (ms)": 3700,
+			"dpe": 180
+		},
+
+		{
+			"dps": 24.24,
+			"move name": "gyro ball",
+			"type": "steel",
+			"power": 80,
+			"duration (ms)": 3300,
+			"dpe": 160
+		},
+
+		{
+			"dps": 24.07,
+			"move name": "psyshock",
+			"type": "psychic",
+			"power": 65,
+			"duration (ms)": 2700,
+			"dpe": 195
+		},
+
+		{
+			"dps": 23.91,
+			"move name": "mud bomb",
+			"type": "ground",
+			"power": 55,
+			"duration (ms)": 2300,
+			"dpe": 165
+		},
+
+		{
+			"dps": 23.81,
+			"move name": "rock blast",
+			"type": "rock",
+			"power": 50,
+			"duration (ms)": 2100,
+			"dpe": 150
+		},
+
+		{
+			"dps": 23.81,
+			"move name": "sludge",
+			"type": "poison",
+			"power": 50,
+			"duration (ms)": 2100,
+			"dpe": 150
+		},
+
+		{
+			"dps": 23.68,
+			"move name": "bubble beam",
+			"type": "water",
+			"power": 45,
+			"duration (ms)": 1900,
+			"dpe": 135
+		},
+
+		{
+			"dps": 23.53,
+			"move name": "shadow punch",
+			"type": "ghost",
+			"power": 40,
+			"duration (ms)": 1700,
+			"dpe": 120
+		},
+
+		{
+			"dps": 23.08,
+			"move name": "energy ball",
+			"type": "grass",
+			"power": 90,
+			"duration (ms)": 3900,
+			"dpe": 180
+		},
+
+		{
+			"dps": 23.08,
+			"move name": "mirror coat",
+			"type": "psychic",
+			"power": 60,
+			"duration (ms)": 2600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 23.08,
+			"move name": "night shade",
+			"type": "ghost",
+			"power": 60,
+			"duration (ms)": 2600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 23.08,
+			"move name": "draining kiss",
+			"type": "fairy",
+			"power": 60,
+			"duration (ms)": 2600,
+			"dpe": 120
+		},
+
+		{
+			"dps": 22.92,
+			"move name": "aerial ace",
+			"type": "flying",
+			"power": 55,
+			"duration (ms)": 2400,
+			"dpe": 165
+		},
+
+		{
+			"dps": 22.86,
+			"move name": "bulldoze",
+			"type": "ground",
+			"power": 80,
+			"duration (ms)": 3500,
+			"dpe": 160
+		},
+
+		{
+			"dps": 22.73,
+			"move name": "psystrike",
+			"type": "psychic",
+			"power": 100,
+			"duration (ms)": 4400,
+			"dpe": 200
+		},
+
+		{
+			"dps": 22.73,
+			"move name": "night slash",
+			"type": "dark",
+			"power": 50,
+			"duration (ms)": 2200,
+			"dpe": 150
+		},
+
+		{
+			"dps": 22.54,
+			"move name": "aurora beam",
+			"type": "ice",
+			"power": 80,
+			"duration (ms)": 3550,
+			"dpe": 160
+		},
+
+		{
+			"dps": 22.22,
+			"move name": "air cutter",
+			"type": "flying",
+			"power": 60,
+			"duration (ms)": 2700,
+			"dpe": 120
+		},
+
+		{
+			"dps": 22.22,
+			"move name": "flame wheel",
+			"type": "fire",
+			"power": 60,
+			"duration (ms)": 2700,
+			"dpe": 120
+		},
+
+		{
+			"dps": 21.88,
+			"move name": "rock tomb",
+			"type": "rock",
+			"power": 70,
+			"duration (ms)": 3200,
+			"dpe": 140
+		},
+
+		{
+			"dps": 21.88,
+			"move name": "psybeam",
+			"type": "psychic",
+			"power": 70,
+			"duration (ms)": 3200,
+			"dpe": 140
+		},
+
+		{
+			"dps": 21.88,
+			"move name": "crunch",
+			"type": "dark",
+			"power": 70,
+			"duration (ms)": 3200,
+			"dpe": 210
+		},
+
+		{
+			"dps": 21.88,
+			"move name": "water pulse",
+			"type": "water",
+			"power": 70,
+			"duration (ms)": 3200,
+			"dpe": 140
+		},
+
+		{
+			"dps": 21.74,
+			"move name": "ominous wind",
+			"type": "ghost",
+			"power": 50,
+			"duration (ms)": 2300,
+			"dpe": 150
+		},
+
+		{
+			"dps": 21.62,
+			"move name": "scald",
+			"type": "water",
+			"power": 80,
+			"duration (ms)": 3700,
+			"dpe": 160
+		},
+
+		{
+			"dps": 21.62,
+			"move name": "horn attack",
+			"type": "normal",
+			"power": 40,
+			"duration (ms)": 1850,
+			"dpe": 120
+		},
+
+		{
+			"dps": 21.43,
+			"move name": "swift",
+			"type": "normal",
+			"power": 60,
+			"duration (ms)": 2800,
+			"dpe": 120
+		},
+
+		{
+			"dps": 21.28,
+			"move name": "dig",
+			"type": "ground",
+			"power": 100,
+			"duration (ms)": 4700,
+			"dpe": 200
+		},
+
+		{
+			"dps": 21.05,
+			"move name": "low sweep",
+			"type": "fighting",
+			"power": 40,
+			"duration (ms)": 1900,
+			"dpe": 120
+		},
+
+		{
+			"dps": 21.05,
+			"move name": "heart stamp",
+			"type": "psychic",
+			"power": 40,
+			"duration (ms)": 1900,
+			"dpe": 120
+		},
+
+		{
+			"dps": 20.69,
+			"move name": "wrap",
+			"type": "normal",
+			"power": 60,
+			"duration (ms)": 2900,
+			"dpe": 180
+		},
+
+		{
+			"dps": 20.59,
+			"move name": "poison fang",
+			"type": "poison",
+			"power": 35,
+			"duration (ms)": 1700,
+			"dpe": 105
+		},
+
+		{
+			"dps": 20,
+			"move name": "ancient power",
+			"type": "rock",
+			"power": 70,
+			"duration (ms)": 3500,
+			"dpe": 210
+		},
+
+		{
+			"dps": 20,
+			"move name": "sand tomb",
+			"type": "ground",
+			"power": 80,
+			"duration (ms)": 4000,
+			"dpe": 160
+		},
+
+		{
+			"dps": 20,
+			"move name": "hydro pump blastoise",
+			"type": "water",
+			"power": 90,
+			"duration (ms)": 4500,
+			"dpe": 90
+		},
+
+		{
+			"dps": 18.92,
+			"move name": "silver wind",
+			"type": "bug",
+			"power": 70,
+			"duration (ms)": 3700,
+			"dpe": 210
+		},
+
+		{
+			"dps": 18.42,
+			"move name": "flame charge",
+			"type": "fire",
+			"power": 70,
+			"duration (ms)": 3800,
+			"dpe": 210
+		},
+
+		{
+			"dps": 18.42,
+			"move name": "vice grip",
+			"type": "normal",
+			"power": 35,
+			"duration (ms)": 1900,
+			"dpe": 105
+		},
+
+		{
+			"dps": 18.18,
+			"move name": "icy wind",
+			"type": "ice",
+			"power": 60,
+			"duration (ms)": 3300,
+			"dpe": 180
+		},
+
+		{
+			"dps": 17.95,
+			"move name": "disarming voice",
+			"type": "fairy",
+			"power": 70,
+			"duration (ms)": 3900,
+			"dpe": 210
+		},
+
+		{
+			"dps": 17.31,
+			"move name": "aqua jet",
+			"type": "water",
+			"power": 45,
+			"duration (ms)": 2600,
+			"dpe": 135
+		},
+
+		{
+			"dps": 17.24,
+			"move name": "shadow sneak",
+			"type": "ghost",
+			"power": 50,
+			"duration (ms)": 2900,
+			"dpe": 150
+		},
+
+		{
+			"dps": 16.07,
+			"move name": "twister",
+			"type": "dragon",
+			"power": 45,
+			"duration (ms)": 2800,
+			"dpe": 135
+		},
+
+		{
+			"dps": 15.91,
+			"move name": "struggle",
+			"type": "normal",
+			"power": 35,
+			"duration (ms)": 2200,
+			"dpe": 3500
+		},
+
+		{
+			"dps": 12.82,
+			"move name": "giga drain",
+			"type": "grass",
+			"power": 50,
+			"duration (ms)": 3900,
+			"dpe": 50
+		},
+
+		{
+			"dps": 10.64,
+			"move name": "scald blastoise",
+			"type": "water",
+			"power": 50,
+			"duration (ms)": 4700,
+			"dpe": 50
+		},
+
+		{
+			"dps": 9.62,
+			"move name": "mega drain",
+			"type": "grass",
+			"power": 25,
+			"duration (ms)": 2600,
+			"dpe": 50
+		},
+
+		{
+			"dps": 8.93,
+			"move name": "parabolic charge",
+			"type": "electric",
+			"power": 25,
+			"duration (ms)": 2800,
+			"dpe": 50
+		},
+
+		{
+			"dps": 8.62,
+			"move name": "wrap pink",
+			"type": "normal",
+			"power": 25,
+			"duration (ms)": 2900,
+			"dpe": 75
+		},
+
+		{
+			"dps": 8.62,
+			"move name": "wrap green",
+			"type": "normal",
+			"power": 25,
+			"duration (ms)": 2900,
+			"dpe": 75
+		}
+	]
+}
