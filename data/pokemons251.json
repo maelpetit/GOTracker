@@ -10821,6 +10821,14 @@
 			[
 				{
 					"name": "bite"
+				},
+				
+				{
+					"name": "dragon breath"
+				},
+				
+				{
+					"name": "dragon tail"
 				}
 			],
 
@@ -10836,6 +10844,14 @@
 
 				{
 					"name": "twister"
+				},
+				
+				{
+					"name": "crunch"
+				},
+				
+				{
+					"name": "outrage"
 				}
 			],
 

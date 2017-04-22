@@ -8,7 +8,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.bson.Document;
 
@@ -20,7 +19,6 @@ import mongo.Utils;
 import pokemons.FavPokemon;
 import pokemons.FavPokemonWrapper;
 import pokemons.MyPokemon;
-import users.Authentication;
 import users.Role;
 import users.User;
 import users.UserList;
@@ -39,26 +37,23 @@ public class Tests {
 		
 	    String URL = "http://localhost:8080/GOTracker/tracker";
 		Client client = ClientBuilder.newClient();
-//		MyPokemon myPokemon = new MyPokemon();
-//		myPokemon.setPokemonID("004");
-//		myPokemon.setCaught(true);
-//		myPokemon.setNbCandies(11);
-//		FavPokemonWrapper favs = new FavPokemonWrapper();
-//		FavPokemon fav = new FavPokemon();
-//		fav.setPC(461);
-//		fav.setWonder(true);
-//		fav.setQuickmove("scratch");
-//		fav.setChargemove("flame charge");
-//		favs.getFavsList().add(fav);
+		MyPokemon myPokemon = new MyPokemon();
+		myPokemon.setPokemonID("004");
+		myPokemon.setCaught(true);
+		myPokemon.setNbCandies(11);
+		FavPokemonWrapper favs = new FavPokemonWrapper();
+		FavPokemon fav = new FavPokemon();
+		fav.setPC(461);
+		fav.setWonder(true);
+		fav.setQuickmove("scratch");
+		fav.setChargemove("flame charge");
+		favs.getFavsList().add(fav);
+		favs.getFavsList().add(fav);
 		
-
-		Authentication auth = new Authentication();
-		auth.setLogin("zfzfz");
-		auth.setPassword("ozfozf");
+		myPokemon.setFavs(favs);
+		//client.target(URL).path("users/mael/pokedex").request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
 		
-		Response response = client.target(URL).path("users/login").request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(auth , MediaType.APPLICATION_XML));
-		System.out.println(response.getStatus());
-		Database.closeMongoClient();
+		System.out.println(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
 		
 	}
 

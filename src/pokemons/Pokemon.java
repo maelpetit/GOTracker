@@ -48,7 +48,7 @@ public class Pokemon {
 		this.pokemonID = pokeID;
 		this.name = name;
 		this.types = types;
-		this.image_url = "https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/" + this.name.toLowerCase() + ".gif";
+		this.image_url = "https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/" + this.name.toLowerCase().replaceAll(" ", "_") + ".gif";
 		QuickMove qm;
 		for (Document move : quickmoves) {
 			qm = PokemonsAndMoves.getInstance().getQuickMove(move.getString("name"));

@@ -5,26 +5,30 @@
 <title>GOTracker</title>
 </head>
 <body>
-<div align="center">
-	<div>
-		<label>Username : </label> <label id="username"></label>
+	<div align="center">
+		<div>
+			<label>Username : </label> <label id="username"></label>
+		</div>
+		<div>
+			<label>Select Pokemon</label> <select id="mypokemons"
+				onchange="javascript:loadMyPokemon();">
+				<option value="blank"></option>
+			</select>
+			<img hidden=true id="image" alt="poke_image">
+		</div>
+		<form name="mypokemon" action="" method="POST">
+			<div id="caughtDiv">
+				<label>Caught ?</label> <input type="checkbox" id="caught" onchange="javascript:changeOccured();">
+			</div>
+			<div id="nbCandiesDiv">
+				<label>Number of candies</label> <input type="number" id="nbCandies" onchange="javascript:changeOccured();">
+			</div>
+			<div id="favDiv">Favorites</div>
+			<div id="favorites">
+			</div>
+			<button type="button" id="submitButton">Save Changes For This Pokemon</button>
+		</form>
 	</div>
-	<form>
-		<label>Select Pokemon</label> 
-		<select id="mypokemons" onchange="javascript:loadMyPokemon();">
-			<option value="blank"></option>
-		</select>
-	</form>
-	<form name="mypokemon" action="" method="POST">
-		<div id="caughtDiv">
-			<label>Caught ?</label> <input type="checkbox" id="caught">
-		</div>
-		<div id="nbCandiesDiv">
-			<label>Number of candies</label> <input type="number" id="nbCandies">
-		</div>
-		<button type="button" id="submitButton">Edit My Pokemon</button>
-	</form>
-</div>
 	<!-- Permet de lancer les scripts javascript -->
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
