@@ -18,7 +18,7 @@ public class DatabaseUpdater {
 		updateQuickMoves();
 		updateChargeMoves();
 		updatePokemons();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 	}
 
 	@SuppressWarnings("unchecked")

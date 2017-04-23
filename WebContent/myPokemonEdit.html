@@ -9,25 +9,38 @@
 		<div>
 			<label>Username : </label> <label id="username"></label>
 		</div>
-		<div>
-			<label>Select Pokemon</label> <select id="mypokemons"
-				onchange="javascript:loadMyPokemon();">
-				<option value="blank"></option>
-			</select>
-			<img hidden=true id="image" alt="poke_image">
+		<div id="pokemonListContainer">
+			<div id="leftspacer"
+				style="position: relative; width: 25%; float: left">&nbsp;</div>
+			<div id="pokemonList" align="center"
+				style="position: relative; width: 50%; float: left"></div>
+			<div id="rightspacer"
+				style="position: relative; width: 25%; float: left"></div>
 		</div>
-		<form name="mypokemon" action="" method="POST">
+		<div id="mypokemon"	hidden=true>
+			<div >
+				FIXME
+			</div>
+			<div id="nameDiv">
+				<label>Pokemon : </label><label id="pokemonName"></label> 
+			</div>
+			<div><img 
+					id="image">
+			</div>
 			<div id="caughtDiv">
-				<label>Caught ?</label> <input type="checkbox" id="caught" onchange="javascript:changeOccured();">
+				<label>Caught ?</label> <input type="checkbox" id="caught"
+					onchange="javascript:changeOccured();">
 			</div>
 			<div id="nbCandiesDiv">
-				<label>Number of candies</label> <input type="number" id="nbCandies" onchange="javascript:changeOccured();">
+				<label>Number of candies</label> <input type="number" id="nbCandies"
+					onchange="javascript:changeOccured();">
 			</div>
 			<div id="favDiv">Favorites</div>
-			<div id="favorites">
-			</div>
-			<button type="button" id="submitButton">Save Changes For This Pokemon</button>
-		</form>
+			<div id="favorites"></div>
+			<button type="button" id="submitButton">Save Changes For
+				This Pokemon</button>
+			<button type="button" id="backButton" onclick="javascript:back();">Back</button>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"

@@ -18,7 +18,7 @@ $(function() {
 			if (null != data) {
 				pokemonsData = data;
 				$.each(data, function(key, poke){
-					addPokemontoDropDown(poke);
+					addPokemonToList(poke);
 				});
 			}
 
@@ -44,17 +44,15 @@ $(function() {
 		}
 	});
 
-	function addPokemontoDropDown(poke){
-		var select = document.getElementById("mypokemons");
-		var option = document.createElement("option");
-		option.value = poke.pokemonID;
-		option.text = '#' + poke.pokemonID + ' ' + capitalizeFirstLetter(poke.name);
-		select.add(option);
-	}
+//	function addPokemontoDropDown(poke){
+//		var select = document.getElementById("mypokemons");
+//		var option = document.createElement("option");
+//		option.value = poke.pokemonID;
+//		option.text = '#' + poke.pokemonID + ' ' + capitalizeFirstLetter(poke.name);
+//		select.add(option);
+//	}
 
 	function editMyPokemon(){
-		document.getElementById("mypokemons")
-		var pokemonID = document.getElementById("mypokemons").value;
 		var caught = document.getElementById("caught").checked;
 		var nbCandies = document.getElementById("nbCandies").value;
 		var myfavs = [];
@@ -67,7 +65,12 @@ $(function() {
 			fav['chargemove'] = document.getElementById('chargemove' + favID).value;
 			myfavs.push(fav);
 		});
-
+		
+		var pokemonID = '' + currentPokemonID;
+		while(pokemonID.length < 3){
+			pokemonID = '0' + pokemonID
+		}
+		console.log("edit pokemon " + pokemonID + " for user " + login);
 		$.ajax({
 			type : 'POST',
 			url : rootURL + "/tracker/users/" + login + "/pokedex",
@@ -80,11 +83,11 @@ $(function() {
 			}),
 			dataType : "json",
 			success : function(data) {
-				console.log("edit pokemon " + pokemonID + " for user " + login);
+				
 				$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 					document.getElementById('submitButton').style.color = 'green';
 					unsavedchanges = false;
-					if(mypoke.pokemonID == document.getElementById("mypokemons").value){
+					if(mypoke.pokemonID == currentPokemonID){
 						mypoke.nbCandies = nbCandies;
 						mypoke.caught = caught;
 						mypoke.myfavs = {"myfav": myfavs}
@@ -92,12 +95,16 @@ $(function() {
 				});
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				console.log('editMyPokemon error: ' + textStatus);
+				console.log('editMyPokemon error: ' + errorThrown);
 			}
 		});
 	}
 
 	$("#submitButton").click(function() {
+		editMyPokemon();
+	});
+	
+	$("#backButton").click(function() {
 		editMyPokemon();
 	});
 
@@ -133,12 +140,21 @@ function getPokemon(pokemonID){
 	return pokemon;
 }
 
+function addPokemonToList(poke){
+	var div = document.createElement('div');
+	div.innerHTML = '<div style="float:left;min-width=80px; min-height:80px; max-width=80px; max-height:80px;margin:1px;border-radius:2px;background-color:lightblue;">\
+		<img id="image'+poke.pokemonID+'" src="'+poke.image_url+'" onclick="javascript:pokemonClicked('+poke.pokemonID+');" style="min-width=80px; min-height:80px; max-width=80px; max-height:80px;"></a></div>';
+	document.getElementById("pokemonList").appendChild(div)
+}
+
+function pokemonClicked(pokemonID){
+	loadMyPokemon(pokemonID)
+	document.getElementById("pokemonList").hidden=true
+	document.getElementById("mypokemon").hidden=false
+}
+
 var currentPokemonID;
-function loadMyPokemon(){
-	if(!blankRemoved){
-		document.getElementById("mypokemons").remove(0);
-		blankRemoved = true;
-	}
+function loadMyPokemon(pokemonID){
 	if(!addFavButtonLoaded){
 		$("#favDiv").append('<button type="button" id="addFavoriteButton" onclick="javascript:changeOccured();javascript:addFavorite();" >Add A Favorite Pokemon</button>');
 		addFavButtonLoaded = true;
@@ -149,11 +165,11 @@ function loadMyPokemon(){
 			document.getElementById('submitButton').style.color = 'green';
 		}else{return}
 	}
-	var pokemonID = document.getElementById("mypokemons").value;
 	currentPokemonID = pokemonID;
+	var pokemon = getPokemon(pokemonID)
 	var image = document.getElementById("image");
-	image.hidden = false;
-	image.src = getPokemon(pokemonID).image_url;
+	image.src = pokemon.gif_url;
+	document.getElementById("pokemonName").innerHTML = '#' + pokemon.pokemonID + ' ' + capitalizeFirstLetter(pokemon.name)
 	favIDs = [];
 	favCount = 0;
 	document.getElementById("favorites").innerHTML = "";
@@ -244,7 +260,10 @@ function changeOccured(){
 }
 
 
-
+function back(){
+	document.getElementById("pokemonList").hidden=false
+	document.getElementById("mypokemon").hidden=true
+}
 
 
 

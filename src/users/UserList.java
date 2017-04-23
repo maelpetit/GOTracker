@@ -82,7 +82,7 @@ public class UserList {
 				user.addMyPokemon(myPokemon);
 			}
 		}
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 	}
 
 	

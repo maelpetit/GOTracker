@@ -47,7 +47,7 @@ $(function() {
 function getPokemon(pokemonID){
 	var pokemon = null;
 	$.each(pokemonsData, function(jey, poke){
-		if(poke.pokemonID == pokemonID){
+		if(parseInt(poke.pokemonID) == pokemonID){
 			pokemon = poke;
 		}
 	});
@@ -56,28 +56,39 @@ function getPokemon(pokemonID){
 
 function addPokemonToList(poke){
 	var div = document.createElement('div');
-	div.innerHTML = '<div style="float:left;min-width=80px; min-height:80px; max-width=80px; max-height:80px;margin:1px;border-radius:2px;background-color:lightblue;"\
-		onmouseout="javascript:replaceGif('+ poke.pokemonID +');" onmouseover="javascript:replaceImage('+ poke.pokemonID +');">\
-		<img id="image'+poke.pokemonID+'" src="'+poke.image_url+'" onclick="javascript:test('+poke.pokemonID+');" style="min-width=80px; min-height:80px; max-width=80px; max-height:80px;"></a></div>';
+	div.innerHTML = '<div style="float:left;min-width=80px; min-height:80px; max-width=80px; max-height:80px;margin:1px;border-radius:2px;background-color:lightblue;">\
+		<img id="image'+poke.pokemonID+'" src="'+poke.image_url+'" onclick="javascript:pokemonClicked('+poke.pokemonID+');" style="min-width=80px; min-height:80px; max-width=80px; max-height:80px;"></a></div>';
 	document.getElementById("pokemonList").appendChild(div)
 }
 
-function test(pokemonID){
-	console.log(pokemonID)
+function pokemonClicked(pokemonID){
+	var pokemon = getPokemon(pokemonID)
+	document.getElementById('pokemonListContainer').hidden = true;
+	document.getElementById('singlePokemonContainer').hidden = false;
+	document.getElementById('pokemon_gif').src = pokemon.gif_url;
 }
 
-function replaceGif(pokeID){
-	var pokemonID = '' + pokeID
-	while(pokemonID.length < 3){
-		pokemonID = '0' + pokemonID
-	}
-	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).image_url;
+function back(){
+	document.getElementById('pokemonListContainer').hidden = false
+	document.getElementById('singlePokemonContainer').hidden = true
+	document.getElementById('pokemon_gif').src = '';
 }
 
-function replaceImage(pokeID){
-	var pokemonID = '' + pokeID
-	while(pokemonID.length < 3){
-		pokemonID = '0' + pokemonID
-	}
-	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).gif_url;
-}
+//onmouseover="javascript:replaceImage('+ poke.pokemonID +');"
+//onmouseout="javascript:replaceGif('+ poke.pokemonID +');"
+
+//function replaceGif(pokeID){
+//	var pokemonID = '' + pokeID
+//	while(pokemonID.length < 3){
+//		pokemonID = '0' + pokemonID
+//	}
+//	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).image_url;
+//}
+//
+//function replaceImage(pokeID){
+//	var pokemonID = '' + pokeID
+//	while(pokemonID.length < 3){
+//		pokemonID = '0' + pokemonID
+//	}
+//	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).gif_url;
+//}

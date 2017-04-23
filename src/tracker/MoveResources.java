@@ -23,7 +23,7 @@ public class MoveResources {
 		List<Move> moves = new ArrayList<>();
 		moves.addAll(PokemonsAndMoves.getInstance().getQuickmoves());
 		moves.addAll(PokemonsAndMoves.getInstance().getChargemoves());
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return moves;
 	}
 	
@@ -32,7 +32,7 @@ public class MoveResources {
 	@Produces({MediaType.APPLICATION_XML})
 	public List<QuickMove> getQuickMoves(){
 		List<QuickMove> moveList = PokemonsAndMoves.getInstance().getQuickmoves();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return moveList;
 	}
 	
@@ -41,7 +41,7 @@ public class MoveResources {
 	@Produces({MediaType.APPLICATION_XML})
 	public List<ChargeMove> getChargeMoves(){
 		List<ChargeMove> moveList = PokemonsAndMoves.getInstance().getChargemoves();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return moveList;
 	}
 

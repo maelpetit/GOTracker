@@ -18,6 +18,10 @@ import com.mongodb.client.result.UpdateResult;
 
 public class Database {
 	
+	/*
+	 *  ps -ef | grep mongo
+	 */
+	
 	private static MongoClient mongo_client = null;
 	private static MongoDatabase pokemon_go_database = null;
 	private static MongoCollection<Document> pokemons_collection = null;
@@ -78,13 +82,13 @@ public class Database {
 	public static void closeMongoClient(){
 		if(mongo_client != null){
 			mongo_client.close();
-			mongo_client = null;
-			users_collection = null;
-			quickmoves_collection = null;
-			chargemoves_collection = null;
-			pokedexes_collections.clear();
-			pokemons_collection = null;
-			pokemon_go_database = null;
+//			mongo_client = null;
+//			users_collection = null;
+//			quickmoves_collection = null;
+//			chargemoves_collection = null;
+//			pokedexes_collections.clear();
+//			pokemons_collection = null;
+//			pokemon_go_database = null;
 		}
 	}
 	

@@ -27,7 +27,7 @@ public class UserResources {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<User> getUsers(){
 		List<User> userList = UserList.getInstance().getUsers();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return userList;
 	}
 	
@@ -37,7 +37,7 @@ public class UserResources {
 	public Response getUser(@PathParam("login") String login){
 		User user = UserList.getInstance().getUser(login);
 		Response response = Response.status(Response.Status.OK).entity(user).build();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return response;
 	}
 	
@@ -58,7 +58,7 @@ public class UserResources {
 			}
 		}
 		DatabaseUpdater.editPokedex(login, myPokemon);
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 	}
 	
 	@Path("/{login}/pokedex/{number}")
@@ -67,7 +67,7 @@ public class UserResources {
 	public MyPokemon getMyPokemon(@PathParam("login") String login, @PathParam("number") String pokemonID){
 		User user = UserList.getInstance().getUser(login);
 		MyPokemon myPokemon = user.getMyPokemon(pokemonID);
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return myPokemon;
 	}
 	
@@ -81,6 +81,7 @@ public class UserResources {
 		if(user == null){
 			System.out.println("NOT_FOUND");
 			response = Response.status(Response.Status.NOT_FOUND).build();
+			return response;
 		}
 		if(user.samePassword(auth.getPassword())){
 			System.out.println("ACCEPTED");
@@ -89,7 +90,7 @@ public class UserResources {
 			System.out.println("UNAUTHORIZED");
 			response = Response.status(Response.Status.UNAUTHORIZED).build();
 		}
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return response;
 		
 	}

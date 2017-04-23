@@ -19,7 +19,7 @@ public class PokemonResources {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<Pokemon> getAllPokemons(){
 		List<Pokemon> pokemonsList = PokemonsAndMoves.getInstance().getPokemons();
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return pokemonsList;
 	}
 	
@@ -28,7 +28,7 @@ public class PokemonResources {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Pokemon getPokemon(@PathParam("number") int number){
 		Pokemon pokemon = PokemonsAndMoves.getInstance().getPokemon(number);
-		Database.closeMongoClient();
+		//Database.closeMongoClient();
 		return pokemon;
 	}
 

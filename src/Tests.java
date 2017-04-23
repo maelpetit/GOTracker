@@ -28,13 +28,11 @@ public class Tests {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException, FileNotFoundException {
 		
-//		User user = UserList.getInstance().getUser("mael");
-//		MyPokemon mypokemon = user.getMyPokemon("149");
-//		FavPokemon fav = new FavPokemon(2691, true, "steel wing", "hyper beam");
-//		mypokemon.addFav(fav);
-//		DatabaseUpdater.editPokedex("mael", mypokemon);
-//		
-//		Database.closeMongoClient();
+		User user = new User("jules", "Boom", Role.ADMIN);
+		user.setPasswordHashWithPassword("bite");
+		Database.addUser(user.getUserDocument());
+		
+		Database.closeMongoClient();
 		
 //	    String URL = "http://localhost:8080/GOTracker/tracker";
 //		Client client = ClientBuilder.newClient();
