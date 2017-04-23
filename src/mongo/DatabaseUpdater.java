@@ -117,7 +117,9 @@ public class DatabaseUpdater {
 	public static void main(String[] args) throws FileNotFoundException {
 		//updateQuickMoves();
 		//updateChargeMoves();
-		updatePokemons();
+		//updatePokemons();
+		//Database.closeMongoClient();
+		updateMovesAndPokemons();
 	}
 
 

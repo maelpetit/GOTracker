@@ -27,6 +27,7 @@ public class Pokemon {
 	@XmlElement(name="type")
 	private Types[] types;
 	private String image_url;
+	private String gif_url;
 	
 	@XmlElementWrapper(name="evolutions")
 	@XmlElement(name="evolution")
@@ -48,7 +49,8 @@ public class Pokemon {
 		this.pokemonID = pokeID;
 		this.name = name;
 		this.types = types;
-		this.image_url = "https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/" + this.name.toLowerCase().replaceAll(" ", "_") + ".gif";
+		this.image_url = "https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/icons/96x96/" + Integer.parseInt(pokemonID) + ".png";
+		this.setGif_url("https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/" + this.name.toLowerCase().replaceAll(" ", "_") + ".gif");
 		QuickMove qm;
 		for (Document move : quickmoves) {
 			qm = PokemonsAndMoves.getInstance().getQuickMove(move.getString("name"));
@@ -104,6 +106,14 @@ public class Pokemon {
 
 	public String getImage_url() {
 		return image_url;
+	}
+
+	public String getGif_url() {
+		return gif_url;
+	}
+
+	public void setGif_url(String gif_url) {
+		this.gif_url = gif_url;
 	}
 
 	public List<QuickMove> getQuickmoveSet() {

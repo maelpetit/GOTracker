@@ -22,7 +22,7 @@ $(function() {
 			statusCode: {
 				202: function() {
 					localStorage.setItem("login", login);
-					document.location.href = rootURL + "/myPokemonEdit.html";
+					document.location.href = rootURL + "/menu.html";
 				},
 				401: function(){
 					$('#message').append("<p>").append("Wrong password")

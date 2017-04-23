@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import org.bson.Document;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.MongoClient;
 
 import mongo.Database;
 import mongo.DatabaseUpdater;
@@ -35,25 +36,26 @@ public class Tests {
 //		
 //		Database.closeMongoClient();
 		
-	    String URL = "http://localhost:8080/GOTracker/tracker";
-		Client client = ClientBuilder.newClient();
-		MyPokemon myPokemon = new MyPokemon();
-		myPokemon.setPokemonID("004");
-		myPokemon.setCaught(true);
-		myPokemon.setNbCandies(11);
-		FavPokemonWrapper favs = new FavPokemonWrapper();
-		FavPokemon fav = new FavPokemon();
-		fav.setPC(461);
-		fav.setWonder(true);
-		fav.setQuickmove("scratch");
-		fav.setChargemove("flame charge");
-		favs.getFavsList().add(fav);
-		favs.getFavsList().add(fav);
-		
-		myPokemon.setFavs(favs);
-		//client.target(URL).path("users/mael/pokedex").request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
-		
-		System.out.println(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
+//	    String URL = "http://localhost:8080/GOTracker/tracker";
+//		Client client = ClientBuilder.newClient();
+//		MyPokemon myPokemon = new MyPokemon();
+//		myPokemon.setPokemonID("004");
+//		myPokemon.setCaught(true);
+//		myPokemon.setNbCandies(11);
+//		FavPokemonWrapper favs = new FavPokemonWrapper();
+//		FavPokemon fav = new FavPokemon();
+//		fav.setPC(461);
+//		fav.setWonder(true);
+//		fav.setQuickmove("scratch");
+//		fav.setChargemove("flame charge");
+//		favs.getFavsList().add(fav);
+//		favs.getFavsList().add(fav);
+//		
+//		myPokemon.setFavs(favs);
+//		//client.target(URL).path("users/mael/pokedex").request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
+//		
+//		System.out.println(Entity.entity(myPokemon , MediaType.APPLICATION_XML));
+//		
 		
 	}
 

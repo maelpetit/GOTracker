@@ -1,4 +1,4 @@
-var usersData = null;
+var userData = null;
 var pokemonsData = null;
 var blankRemoved = false;
 var favIDs = [];
@@ -34,7 +34,7 @@ $(function() {
 		dataType : "json",
 		success : function(data) {
 			if (null != data) {
-				usersData = data;
+				userData = data;
 				$('#username').append(data.username);
 			}
 
@@ -81,7 +81,7 @@ $(function() {
 			dataType : "json",
 			success : function(data) {
 				console.log("edit pokemon " + pokemonID + " for user " + login);
-				$.each(usersData.mypokemons.mypokemon, function(key, mypoke){
+				$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 					document.getElementById('submitButton').style.color = 'green';
 					unsavedchanges = false;
 					if(mypoke.pokemonID == document.getElementById("mypokemons").value){
@@ -157,7 +157,7 @@ function loadMyPokemon(){
 	favIDs = [];
 	favCount = 0;
 	document.getElementById("favorites").innerHTML = "";
-	$.each(usersData.mypokemons.mypokemon, function(key, mypoke){
+	$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 		if(mypoke.pokemonID == pokemonID){
 			document.getElementById("caught").checked = mypoke.caught;
 			document.getElementById("nbCandies").value = mypoke.nbCandies;
