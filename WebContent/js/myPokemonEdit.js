@@ -2,6 +2,8 @@ var userData = null;
 var pokemonsData = null;
 var blankRemoved = false;
 var favIDs = [];
+var quickmovesData = null;
+var chargemovesData = null;
 $(function() {
 
 	var host = window.location.host;
@@ -24,6 +26,30 @@ $(function() {
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('getUser error: ' + textStatus);
+		}
+	});
+	
+	$.ajax({
+		type : 'GET',
+		url : rootURL + '/tracker/moves/quick',
+		dataType : "xml",
+		success : function(data) {
+			quickmovesData = data.documentElement;
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('getQuickMoves error: ' + textStatus);
+		}
+	});
+	
+	$.ajax({
+		type : 'GET',
+		url : rootURL + '/tracker/moves/charge',
+		dataType : "xml",
+		success : function(data) {
+			chargemovesData = data.documentElement;
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('getChargeMoves error: ' + textStatus);
 		}
 	});
 
@@ -133,8 +159,9 @@ function getPokemon(pokemonID){
 /// min-width=80px;min-height:80px; max-width=80px; max-height:80px;
 function addPokemonToList(poke){
 	var div = document.createElement('div');
+	var size = 72
 	var bgc = poke.pokemonID <= 151 ? 'lightblue' : 'pink'
-		div.style = 'float:left;margin:1px;border-radius:2px;background-color:' + bgc + ';min-width=80px;min-height:80px; max-width=80px; max-height:80px;';
+		div.style = 'float:left;margin:1px;border-radius:2px;background-color:' + bgc + ';min-width='+size+'px;min-height:'+size+'px; max-width='+size+'px; max-height:'+size+'px;';
 	div.addEventListener("click", function(){
 		pokemonClicked(poke.pokemonID)
 	})
@@ -164,7 +191,7 @@ function addPokemonToList(poke){
 	var img = document.createElement('img');
 	img.id = 'image'+poke.pokemonID
 	img.src = poke.image_url
-	img.setAttribute('style','min-width=80px; min-height:80px; max-width=80px; max-height:80px;')
+	img.setAttribute('style','min-width='+size+'px; min-height:'+size+'px; max-width='+size+'px; max-height:'+size+'px;')
 	div.appendChild(img)
 	document.getElementById("pokemonList").appendChild(div)
 }
@@ -207,6 +234,7 @@ function loadMyPokemon(pokemonID){
 				$.each(mypoke.myfavs.myfav, function(key, myfav){
 					appendFavorite(myfav, pokemonID);
 				});
+				console.log(mypoke.myfavs)
 			}
 		}
 	});
@@ -232,17 +260,63 @@ function removeFavorite(idFav){
 	var fav = document.getElementById("fav" + idFav);
 	fav.innerHTML = "";
 	fav.parentNode.removeChild(fav);
-	favIDs.splice(favIDs.indexOf(idFav), 1);
+	favIDs.splice(idFav, 1);
 }
 
 function appendFavorite(myfav, pokemonID){
 	var div = document.createElement('div');
 	div.id = "fav"+favCount;
-	div.innerHTML = '<label>PC </label><input type="number" id="PC'+favCount+'" value='+myfav.PC+' onchange="javascript:changeOccured();">\
-	<label>Wonder </label><input type="checkbox" id="wonder'+favCount+'" checked='+myfav.wonder+' onchange="javascript:changeOccured();">\
-	<label>Quick Move </label><select id="quickmove'+favCount+'" onchange="javascript:changeOccured();"></select>\
-	<label>Charge Move </label><select id="chargemove'+favCount+'" onchange="javascript:changeOccured();"></select>\
-	<button type="button" id="remove'+favCount+'" onclick="javascript:changeOccured();javascript:removeFavorite('+favCount+');" >X</button>';
+	
+	var label = document.createElement('label');
+	label.innerHTML = 'PC ';
+	div.appendChild(label);
+	var input = document.createElement('input');
+	input.setAttribute('type', 'number');
+	input.setAttribute('id', 'PC'+favCount);
+	input.setAttribute('value', myfav.PC);
+	input.addEventListener('onchange', function(){
+		changeOccured();
+	});
+	div.appendChild(input)
+	
+	label = document.createElement('label');
+	label.innerHTML = 'Wonder ';
+	div.appendChild(label);
+	input = document.createElement('input');
+	input.setAttribute('type', 'checkbox');
+	input.setAttribute('id', 'wonder'+favCount);
+	input.checked = myfav.wonder;
+	input.addEventListener('onchange', function(){
+		changeOccured();
+	});
+	div.appendChild(input)
+	
+	label = document.createElement('label');
+	label.innerHTML = 'Quick Move ';
+	div.appendChild(label);
+	input = document.createElement('select');
+	input.setAttribute('id', 'quickmove'+favCount);
+	input.addEventListener('onchange', function(){
+		changeOccured();
+	});
+	div.appendChild(input)
+	
+	label = document.createElement('label');
+	label.innerHTML = 'Charge Move ';
+	div.appendChild(label);
+	input = document.createElement('select');
+	input.setAttribute('id', 'chargemove'+favCount);
+	input.addEventListener('onchange', function(){
+		changeOccured();
+	});
+	div.appendChild(input)
+	
+	var suppr = document.createElement('button');
+	suppr.id = 'remove' + favCount;
+	suppr.innerHTML = 'X';
+	suppr.setAttribute('onclick','changeOccured();removeFavorite('+favCount+');');
+	div.appendChild(suppr)
+	
 	document.getElementById('favorites').appendChild(div);
 	addQuickMovestoDropDown(favCount, pokemonID);
 	addChargeMovestoDropDown(favCount, pokemonID);
@@ -258,13 +332,34 @@ function hideBlank(selectName){
 	}
 }
 
+function getQuickMove(name){
+	var qm = null
+	$.each(quickmovesData.childNodes, function(key, quickmove){
+		if(quickmove.getElementsByTagName('name')[0].textContent == name){
+			qm = quickmove
+		}
+	});
+	return qm;
+}
+
+function getChargeMove(name){
+	var cm = null
+	$.each(chargemovesData.childNodes, function(key, chargemove){
+		if(chargemove.getElementsByTagName('name')[0].textContent == name){
+			cm = chargemove
+		}
+	});
+	return cm;
+}
 
 function addQuickMovestoDropDown(favC, pokemonID){
 	var select = document.getElementById("quickmove" + favC);
 	$.each(getPokemon(pokemonID).quickmoves.quickmove, function(key, quickmove){
 		var option = document.createElement("option");
 		option.value = quickmove.name;
-		option.text = capitalizeFirstLetter(quickmove.name);
+		var quickmoveXML = getQuickMove(quickmove.name);
+		var dps = quickmoveXML.getElementsByTagName('damagePerSec')[0].textContent
+		option.text = capitalizeFirstLetter(quickmove.name) + ' (' + dps + ' dps)';
 		select.add(option);
 	});
 }
@@ -274,7 +369,9 @@ function addChargeMovestoDropDown(favC, pokemonID){
 	$.each(getPokemon(pokemonID).chargemoves.chargemove, function(key, chargemove){
 		var option = document.createElement("option");
 		option.value = chargemove.name;
-		option.text = capitalizeFirstLetter(chargemove.name);
+		var chargemoveXML = getChargeMove(chargemove.name);
+		var dps = chargemoveXML.getElementsByTagName('damagePerSec')[0].textContent
+		option.text = capitalizeFirstLetter(chargemove.name) + ' (' + dps + ' dps)';
 		select.add(option);
 	});
 }

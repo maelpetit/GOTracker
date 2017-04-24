@@ -17,7 +17,9 @@ $(function() {
 			if (null != data) {
 				pokemonsData = data;
 				$.each(data, function(key, poke){
-					addPokemonToList(poke);
+					if(poke.evolutions.evolution.length !=  0){
+						addPokemonToList(poke);
+					}
 				});
 			}
 
@@ -72,20 +74,29 @@ function addPokemonToList(poke){
 	starDiv.style.float = 'left';
 	var mypokemon = getMyPokemon(poke.pokemonID);
 	$.each(poke.evolutions.evolution, function(key, evol){
-		var src = 'img/star.gif';
-		if(evol.item != 'NONE'){
-			src = 'img/star_green.gif';
+		var src = '';
+		if(evol.item == 'KINGS_ROCK'){
+			src = 'img/kings_rock.gif';
+		}else if(evol.item == 'UPGRADE'){
+			src = 'img/up-grade.gif';
+		}else if(evol.item == 'SUN_STONE'){
+			src = 'img/sun_stone.gif';
+		}else if(evol.item == 'DRAGON_SCALE'){
+			src = 'img/dragon_scale.gif';
+		}else if(evol.item == 'METAL_COAT'){
+			src = 'img/metal_coat.gif';
 		}
-		if(true || evol.nbCandies <= mypokemon.nbCandies){
+		if(evol.item != 'NONE'){
 			var starImg = document.createElement('img');
+			var size = 16
 			//starImg.id = 'star'+poke.pokemonID;
 			starImg.src = src;
-			starImg.setAttribute('style','float:left;')
+			starImg.setAttribute('style','float:left;width:'+size+'px;max-heigth:'+size+'px;')
 			starDiv.appendChild(starImg);
 		}
 
 	});
-
+	
 	div.appendChild(starDiv);
 	div.appendChild(img);
 	document.getElementById("pokemonList").appendChild(div);
