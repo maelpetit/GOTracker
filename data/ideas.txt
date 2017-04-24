@@ -1,0 +1,9 @@
+evolutions calculator:
+
+group by species + remove stars
+on button press, show only evolvable pokemons + resize according to nbCandies
+
+Edit my pokemon:
+
+little pokeball in corner if caught
+little star  if wonder 

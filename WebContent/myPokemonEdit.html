@@ -6,41 +6,38 @@
 </head>
 <body>
 	<div align="center">
+		<label>Username : </label> <label id="username"></label>
+	</div>
+	<div id="pokemonListContainer">
+		<div id="leftspacer"
+			style="position: relative; width: 20%; float: left">&nbsp;</div>
+		<div id="pokemonList"
+			style="position: relative; width: 60%; float: left"></div>
+		<div id="rightspacer"
+			style="position: relative; width: 20%; float: left"></div>
+	</div>
+	<div id="mypokemon" hidden=true align="center">
+		<button onclick="javacript:prevPokemon()">Prev</button>
+		<button onclick="javacript:back()">Back</button>
+		<button onclick="javacript:nextPokemon()">Next</button>
+		<div id="nameDiv">
+			<label>Pokemon : </label><label id="pokemonName"></label>
+		</div>
 		<div>
-			<label>Username : </label> <label id="username"></label>
+			<img id="image">
 		</div>
-		<div id="pokemonListContainer">
-			<div id="leftspacer"
-				style="position: relative; width: 25%; float: left">&nbsp;</div>
-			<div id="pokemonList" align="center"
-				style="position: relative; width: 50%; float: left"></div>
-			<div id="rightspacer"
-				style="position: relative; width: 25%; float: left"></div>
+		<div id="caughtDiv">
+			<label>Caught ?</label> <input type="checkbox" id="caught"
+				onchange="javascript:changeOccured();">
 		</div>
-		<div id="mypokemon"	hidden=true>
-			<div >
-				FIXME
-			</div>
-			<div id="nameDiv">
-				<label>Pokemon : </label><label id="pokemonName"></label> 
-			</div>
-			<div><img 
-					id="image">
-			</div>
-			<div id="caughtDiv">
-				<label>Caught ?</label> <input type="checkbox" id="caught"
-					onchange="javascript:changeOccured();">
-			</div>
-			<div id="nbCandiesDiv">
-				<label>Number of candies</label> <input type="number" id="nbCandies"
-					onchange="javascript:changeOccured();">
-			</div>
-			<div id="favDiv">Favorites</div>
-			<div id="favorites"></div>
-			<button type="button" id="submitButton">Save Changes For
-				This Pokemon</button>
-			<button type="button" id="backButton" onclick="javascript:back();">Back</button>
+		<div id="nbCandiesDiv">
+			<label>Number of candies</label> <input type="number" id="nbCandies"
+				onchange="javascript:changeOccured();">
 		</div>
+		<div id="favDiv">Favorites</div>
+		<div id="favorites"></div>
+		<button type="button" id="submitButton">Save Changes For This
+			Pokemon</button>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"

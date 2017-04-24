@@ -3,11 +3,12 @@ var userData = null;
 var host = window.location.host;
 var rootURL = "http://" + host + "/GOTracker";
 var login = localStorage.getItem("login");
+var currentPokemon = null;
 
 $(function() {
-	
+
 	console.log(login);
-	
+
 	$.ajax({
 		type : 'GET',
 		url : rootURL + '/tracker/pokemons',
@@ -41,12 +42,12 @@ $(function() {
 			console.log('getUser error: ' + textStatus);
 		}
 	});
-	
+
 });
 
 function getPokemon(pokemonID){
 	var pokemon = null;
-	$.each(pokemonsData, function(jey, poke){
+	$.each(pokemonsData, function(key, poke){
 		if(parseInt(poke.pokemonID) == pokemonID){
 			pokemon = poke;
 		}
@@ -56,16 +57,63 @@ function getPokemon(pokemonID){
 
 function addPokemonToList(poke){
 	var div = document.createElement('div');
-	div.innerHTML = '<div style="float:left;min-width=80px; min-height:80px; max-width=80px; max-height:80px;margin:1px;border-radius:2px;background-color:lightblue;">\
-		<img id="image'+poke.pokemonID+'" src="'+poke.image_url+'" onclick="javascript:pokemonClicked('+poke.pokemonID+');" style="min-width=80px; min-height:80px; max-width=80px; max-height:80px;"></a></div>';
-	document.getElementById("pokemonList").appendChild(div)
+	var bgc = poke.pokemonID <= 151 ? 'lightblue' : 'pink'
+		div.style = 'float:left;margin:1px;border-radius:2px;background-color:' + bgc + ';min-width=80px;min-height:80px; max-width=80px; max-height:80px;';
+	div.addEventListener("click", function(){
+		pokemonClicked(poke.pokemonID)
+	});
+	var img = document.createElement('img');
+	img.id = 'image'+poke.pokemonID;
+	img.src = poke.image_url;
+	img.setAttribute('style','min-width=80px; min-height:80px; max-width=80px; max-height:80px;');
+	var starDiv = document.createElement('div');
+	starDiv.style.height = '0px';
+	starDiv.style.width = '0px';
+	starDiv.style.float = 'left';
+	var mypokemon = getMyPokemon(poke.pokemonID);
+	$.each(poke.evolutions.evolution, function(key, evol){
+		var src = 'img/star.gif';
+		if(evol.item != 'NONE'){
+			src = 'img/star_green.gif';
+		}
+		if(true || evol.nbCandies <= mypokemon.nbCandies){
+			var starImg = document.createElement('img');
+			//starImg.id = 'star'+poke.pokemonID;
+			starImg.src = src;
+			starImg.setAttribute('style','float:left;')
+			starDiv.appendChild(starImg);
+		}
+
+	});
+
+	div.appendChild(starDiv);
+	div.appendChild(img);
+	document.getElementById("pokemonList").appendChild(div);
+}
+
+function getMyPokemon(pokemonID){
+	var mypokemon = null
+	$.each(userData.mypokemons.mypokemon, function(key, mypoke){
+		if(parseInt(mypoke.pokemonID) == parseInt(pokemonID)){
+			mypokemon = mypoke
+		}
+	});
+	return mypokemon;
+}
+
+function loadPokemon(pokemonID){
+	currentPokemon = getPokemon(pokemonID);
+	var bgc = currentPokemon.pokemonID <= 151 ? 'lightblue' : 'pink';
+	var gif = document.getElementById('pokemon_gif');
+	gif.src = currentPokemon.gif_url;
+	gif.setAttribute('style','background-color:' + bgc);
 }
 
 function pokemonClicked(pokemonID){
-	var pokemon = getPokemon(pokemonID)
 	document.getElementById('pokemonListContainer').hidden = true;
 	document.getElementById('singlePokemonContainer').hidden = false;
-	document.getElementById('pokemon_gif').src = pokemon.gif_url;
+	loadPokemon(pokemonID)
+	
 }
 
 function back(){
@@ -74,21 +122,30 @@ function back(){
 	document.getElementById('pokemon_gif').src = '';
 }
 
+function prevPokemon(){
+	loadPokemon(parseInt(currentPokemon.pokemonID) - 1)
+}
+
+function nextPokemon(){
+	pokemonClicked(parseInt(currentPokemon.pokemonID) + 1)
+}
+ 
+
 //onmouseover="javascript:replaceImage('+ poke.pokemonID +');"
 //onmouseout="javascript:replaceGif('+ poke.pokemonID +');"
 
 //function replaceGif(pokeID){
-//	var pokemonID = '' + pokeID
-//	while(pokemonID.length < 3){
-//		pokemonID = '0' + pokemonID
-//	}
-//	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).image_url;
+//var pokemonID = '' + pokeID
+//while(pokemonID.length < 3){
+//pokemonID = '0' + pokemonID
 //}
-//
+//document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).image_url;
+//}
+
 //function replaceImage(pokeID){
-//	var pokemonID = '' + pokeID
-//	while(pokemonID.length < 3){
-//		pokemonID = '0' + pokemonID
-//	}
-//	document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).gif_url;
+//var pokemonID = '' + pokeID
+//while(pokemonID.length < 3){
+//pokemonID = '0' + pokemonID
+//}
+//document.getElementById("image" + pokemonID).src = getPokemon(pokemonID).gif_url;
 //}
