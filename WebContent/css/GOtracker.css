@@ -146,3 +146,13 @@
 			cursor: default;
 			opacity: 0.25;
 		}
+		
+/* test */
+
+.test{
+	position:relative;
+	vertical-align:middle;
+	margin:auto;
+	height:300px;
+	width:300px;
+}

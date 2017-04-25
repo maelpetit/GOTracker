@@ -13,18 +13,26 @@
 		<div id="leftspacer"
 			style="position: relative; width: 5%; float: left">&nbsp;</div>
 		<div id="pokemonList"
-			style="position: relative; width: 70%; float: left"></div>
+			style="position: relative; width: 60%; float: left"></div>
 		<div id="mypokemon" hidden=true align="center"
-			style="width: 25%; float: right; position:fixed; right:10px">
-			<button class ="button" onclick="prevPokemon()">Prev</button>
-			<button class ="button alt" onclick="back()">Back</button>
-			<button class ="button" onclick="nextPokemon()">Next</button>
-			<div id="nameDiv">
-				<label>Pokemon : </label><label id="pokemonName"></label>
-			</div>
-			<div>
-				<img id="image">
-			</div>
+			style="width: 35%; float: right; position: fixed; right: 10px">
+			<label id="pokemonNumber" style="vertical-align:middle"></label><img src="img/pokeball1.gif" style="margin:10px;vertical-align:middle"><br>
+			<img id="image" style="height:147px;min-width:70px;"> <!-- ratio height/width max = 2.1 -->
+			
+			
+			<table id="pokemonNextPrev">
+				<tbody>
+					<tr>
+						<td id="prevButton">
+							<button class="button" onclick="prevPokemon()">&#60;</button> <!-- <button class ="button alt" onclick="back()">Back</button> -->
+						</td>
+						<td id="pokemonName"></td>
+						<td id="nextButton">
+							<button class="button" onclick="nextPokemon()">&#62;</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<div id="caughtDiv">
 				<label>Caught ?</label> <input type="checkbox" id="caught"
 					onchange="javascript:changeOccured();">
@@ -33,10 +41,38 @@
 				<label>Number of candies</label> <input type="number" id="nbCandies"
 					onchange="javascript:changeOccured();">
 			</div>
-			<div id="favDiv">Favorites</div>
-			<div id="favorites"></div>
-			<button type="button" id="submitButton">Save Changes For
-				This Pokemon</button>
+			<div id="favorites">
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>PC</th>
+								<th>Wonder</th>
+								<th>Quickmove</th>
+								<th>Chargemove</th>
+								<th>Suppr</th>
+							</tr>
+						</thead>
+						<tbody id="table-body">
+							<!-- <tr>
+								<td><input type="number" id="PC"></td>
+								<td><input type="checkbox" id="wonder"></td>
+								ici il faut mettre une putain d'image d'étoile(2 en fait)
+								<td><select id="quickmove"></select></td>
+								<td><select id="chargemove"></select></td>
+							</tr>
+							 -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<button class="button alt" id="addFavoriteButton"
+				onclick="javascript:changeOccured();javascript:addFavorite();">Add
+				Pokemon</button>
+			<br>
+			<button class="button special" id="submitButton">Save
+				Changes</button>
+
 		</div>
 	</div>
 

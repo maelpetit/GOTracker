@@ -148,7 +148,18 @@ function editMyPokemon(){
 					mypoke.nbCandies = nbCandies;
 					mypoke.caught = caught;
 					mypoke.myfavs = {"myfav": myfavs}
-					
+					if(caught){
+						var src = 'img/pokeball1.gif'
+							if(myfavs != null){
+								$.each(myfavs, function(key, myfav){
+									if(myfav.wonder){//if one fav is wonder
+										src = 'img/star.gif';
+									}
+								});
+							}
+						document.getElementById('icon' + pokemonID).src = src;
+					}
+
 				}
 			});
 		},
@@ -161,8 +172,8 @@ function editMyPokemon(){
 
 
 var favCount = 0;
-var addFavButtonLoaded = false;
 var unsavedchanges = false;
+var addFavButtonLoaded = false;
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
@@ -192,7 +203,9 @@ function addPokemonToList(poke){
 	starDiv.style.height = '0px';
 	starDiv.style.width = '0px';
 	starDiv.style.float = 'left';
-
+	var starImg = document.createElement('img');
+	starImg.id = 'icon'+poke.pokemonID;
+	starImg.setAttribute('style','float:left;')
 	if(mypokemon.caught){
 		var src = 'img/pokeball1.gif';
 		if(mypokemon.myfavs != null){
@@ -202,13 +215,9 @@ function addPokemonToList(poke){
 				}
 			});
 		}
-		var starImg = document.createElement('img');
-		//starImg.id = 'star'+poke.pokemonID;
 		starImg.src = src;
-		starImg.setAttribute('style','float:left;')
-		starDiv.appendChild(starImg);
-
 	}
+	starDiv.appendChild(starImg);
 	div.appendChild(starDiv);
 	var img = document.createElement('img');
 	img.id = 'image'+poke.pokemonID
@@ -230,24 +239,31 @@ function getMyPokemon(pokemonID){
 
 var currentPokemonID;
 function loadMyPokemon(pokemonID){
-	if(!addFavButtonLoaded){
-		$("#favDiv").append('<button type="button" id="addFavoriteButton" onclick="javascript:changeOccured();javascript:addFavorite();" >Add A Favorite Pokemon</button>');
-		addFavButtonLoaded = true;
-	}
 	if(unsavedchanges){
 		if (confirm("Discard Unsaved Changes ?") == true) {
 			unsavedchanges = false;
-			document.getElementById('submitButton').style.color = 'black';
+			//document.getElementById('submitButton').style.color = 'black';
 		}else{return}
 	}
 	currentPokemonID = pokemonID;
+	if(currentPokemonID <= 1){
+		console.log(currentPokemonID)
+		document.getElementById("prevButton").setAttribute('hidden', true);
+	}else if(currentPokemonID >= pokemonsData.length){
+		document.getElementById("nextButton").setHidden();
+	}
+	else{
+		document.getElementById("prevButton").hidden = false;
+		document.getElementById("nextButton").hidden = false;
+	}
 	var pokemon = getPokemon(pokemonID)
 	var image = document.getElementById("image");
 	image.src = pokemon.gif_url;
-	document.getElementById("pokemonName").innerHTML = '#' + pokemon.pokemonID + ' ' + capitalizeFirstLetter(pokemon.name)
+	document.getElementById("pokemonNumber").innerHTML = '#' + pokemon.pokemonID
+	document.getElementById("pokemonName").innerHTML = capitalizeFirstLetter(pokemon.name)
 	favIDs = [];
 	favCount = 0;
-	document.getElementById("favorites").innerHTML = "";
+	document.getElementById("table-body").innerHTML = "";
 	$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 		if(mypoke.pokemonID == pokemonID){
 			document.getElementById("caught").checked = mypoke.caught;
@@ -256,7 +272,6 @@ function loadMyPokemon(pokemonID){
 				$.each(mypoke.myfavs.myfav, function(key, myfav){
 					appendFavorite(myfav, pokemonID);
 				});
-				//console.log(mypoke.myfavs)
 			}
 		}
 	});
@@ -264,14 +279,70 @@ function loadMyPokemon(pokemonID){
 }
 
 function addFavorite(){
-	var div = document.createElement('div');
-	div.id = "fav"+favCount;
-	div.innerHTML = '<label>PC </label><input type="number" id="PC'+favCount+'" value=0 onchange="javascript:changeOccured();">\
-	<label>Wonder </label><input type="checkbox" id="wonder'+favCount+'" onchange="javascript:changeOccured();">\
-	<label>Quick Move </label><select id="quickmove'+favCount+'" onchange="javascript:changeOccured();javascript:hideBlank(quickmove'+favCount+');"><option value="blank"></option></select>\
-	<label>Charge Move </label><select id="chargemove'+favCount+'" onchange="javascript:changeOccured();javascript:hideBlank(chargemove'+favCount+');"><option value="blank"></option></select>\
-	<button type="button" id="remove'+favCount+'" onclick="javascript:changeOccured();javascript:removeFavorite('+favCount+');">X</button>';
-	document.getElementById('favorites').appendChild(div);
+	var tr = document.createElement('tr');
+	tr.id = "fav"+favCount;
+	var td = document.createElement('td');
+	var input = document.createElement('input');
+	input.setAttribute('type', 'number');
+	input.setAttribute('id', 'PC'+favCount);
+	input.style.width = '50px'
+//	input.setAttribute('onchange', function(){
+//		changeOccured();
+//		console.log('change')
+//	});
+	input.addEventListener('change', function(){
+		changeOccured();
+		console.log('change')
+	});
+	td.appendChild(input)
+	tr.appendChild(td)
+	
+	td = document.createElement('td');
+	input = document.createElement('input');
+	input.setAttribute('type', 'checkbox');
+	input.setAttribute('id', 'wonder'+favCount);
+	input.addEventListener('change', function(){
+		changeOccured();
+	});
+	td.appendChild(input)
+	tr.appendChild(td)
+
+	td = document.createElement('td');
+	input = document.createElement('select');
+	input.setAttribute('id', 'quickmove'+favCount);
+	var option = document.createElement('option');
+	option.value = 'blank'
+	input.appendChild(option)
+	input.addEventListener('change', function(){
+		changeOccured();
+		hideBlank(input)
+	});
+	td.appendChild(input)
+	tr.appendChild(td)
+
+	td = document.createElement('td');
+	input = document.createElement('select');
+	input.setAttribute('id', 'chargemove'+favCount);
+	option = document.createElement('option');
+	option.value = 'blank'
+	input.appendChild(option)
+	input.addEventListener('change', function(){
+		changeOccured();
+		hideBlank(input)
+	});
+	td.appendChild(input)
+	tr.appendChild(td)
+
+	td = document.createElement('td');
+	var suppr = document.createElement('button');
+	suppr.id = 'remove' + favCount;
+	suppr.innerHTML = 'X';
+	suppr.setAttribute('onclick','changeOccured();removeFavorite('+favCount+');');
+	td.appendChild(suppr)
+	tr.appendChild(td)
+	
+	document.getElementById('table-body').appendChild(tr);
+	
 	addQuickMovestoDropDown(favCount, currentPokemonID);
 	addChargeMovestoDropDown(favCount, currentPokemonID);
 	favIDs.push(favCount);
@@ -286,30 +357,35 @@ function removeFavorite(idFav){
 }
 
 function appendFavorite(myfav, pokemonID){
-	var div = document.createElement('div');
-	div.id = "fav"+favCount;
-
-	var label = document.createElement('label');
-	label.innerHTML = 'PC ';
-	div.appendChild(label);
+	/**
+	 * <tr>
+	<td><input type="number" id="PC"></td>
+	<td><input type="checkbox" id="wonder"></td>
+	ici il faut mettre une putain d'image d'étoile(2 en fait)
+	<td><select id="quickmove"></select></td>
+	<td><select id="chargemove"></select></td>
+	</tr>
+	 */
+	var tr = document.createElement('tr');
+	tr.id = "fav"+favCount;
+	var td = document.createElement('td');
 	var input = document.createElement('input');
 	input.setAttribute('type', 'number');
 	input.setAttribute('id', 'PC'+favCount);
-	input.style.width = '80px';
+	input.style.width = '50px'
 	input.setAttribute('value', myfav.PC);
-	$('PC'+favCount).bind('change', function(){
+//	input.setAttribute('onchange', function(){
 //		changeOccured();
+//		console.log('change')
+//	});
+	input.addEventListener('change', function(){
+		changeOccured();
 		console.log('change')
 	});
-//	input.addEventListener('onchange', function(){
-//	changeOccured();
-//	console.log('change')
-//	});
-	div.appendChild(input)
-
-	label = document.createElement('label');
-	label.innerHTML = 'Wonder ';
-	div.appendChild(label);
+	td.appendChild(input)
+	tr.appendChild(td)
+	
+	td = document.createElement('td');
 	input = document.createElement('input');
 	input.setAttribute('type', 'checkbox');
 	input.setAttribute('id', 'wonder'+favCount);
@@ -317,35 +393,36 @@ function appendFavorite(myfav, pokemonID){
 	input.addEventListener('change', function(){
 		changeOccured();
 	});
-	div.appendChild(input)
+	td.appendChild(input)
+	tr.appendChild(td)
 
-	label = document.createElement('label');
-	label.innerHTML = 'Quick Move ';
-	div.appendChild(label);
+	td = document.createElement('td');
 	input = document.createElement('select');
 	input.setAttribute('id', 'quickmove'+favCount);
 	input.addEventListener('change', function(){
 		changeOccured();
 	});
-	div.appendChild(input)
+	td.appendChild(input)
+	tr.appendChild(td)
 
-	label = document.createElement('label');
-	label.innerHTML = 'Charge Move ';
-	div.appendChild(label);
+	td = document.createElement('td');
 	input = document.createElement('select');
 	input.setAttribute('id', 'chargemove'+favCount);
 	input.addEventListener('change', function(){
 		changeOccured();
 	});
-	div.appendChild(input)
+	td.appendChild(input)
+	tr.appendChild(td)
 
+	td = document.createElement('td');
 	var suppr = document.createElement('button');
 	suppr.id = 'remove' + favCount;
 	suppr.innerHTML = 'X';
 	suppr.setAttribute('onclick','changeOccured();removeFavorite('+favCount+');');
-	div.appendChild(suppr)
+	td.appendChild(suppr)
+	tr.appendChild(td)
 
-	document.getElementById('favorites').appendChild(div);
+	document.getElementById('table-body').appendChild(tr);
 	addQuickMovestoDropDown(favCount, pokemonID);
 	addChargeMovestoDropDown(favCount, pokemonID);
 	document.getElementById('quickmove'+favCount).value = myfav.quickmove;
