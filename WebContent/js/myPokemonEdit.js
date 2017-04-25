@@ -12,13 +12,21 @@ $(function() {
 		editMyPokemon();
 	});
 
-//	$(window).keydown(function(event) {
-//	if (event.keyCode == 13) {
-//	event.preventDefault();
-//	editMyPokemon();
-//	return false;
-//	}
-//	});
+	$(window).keydown(function(event) {
+		if (event.keyCode == 37) {
+			event.preventDefault();
+			prevPokemon();
+			return false;
+		}
+	});
+
+	$(window).keydown(function(event) {
+		if (event.keyCode == 39) {
+			event.preventDefault();
+			nextPokemon();
+			return false;
+		}
+	});
 
 });
 
@@ -111,7 +119,7 @@ function setupPokemonList(){
 //}
 
 function editMyPokemon(){
-	var caught = document.getElementById("caught").checked;
+	var caught = caughtCurrent;//document.getElementById("caught").checked;
 	var nbCandies = document.getElementById("nbCandies").value;
 	var myfavs = [];
 
@@ -238,6 +246,8 @@ function getMyPokemon(pokemonID){
 }
 
 var currentPokemonID;
+var caughtCurrent;
+
 function loadMyPokemon(pokemonID){
 	if(unsavedchanges){
 		if (confirm("Discard Unsaved Changes ?") == true) {
@@ -250,7 +260,7 @@ function loadMyPokemon(pokemonID){
 		console.log(currentPokemonID)
 		document.getElementById("prevButton").setAttribute('hidden', true);
 	}else if(currentPokemonID >= pokemonsData.length){
-		document.getElementById("nextButton").setHidden();
+		document.getElementById("nextButton").hidden = true;
 	}
 	else{
 		document.getElementById("prevButton").hidden = false;
@@ -266,7 +276,12 @@ function loadMyPokemon(pokemonID){
 	document.getElementById("table-body").innerHTML = "";
 	$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 		if(mypoke.pokemonID == pokemonID){
-			document.getElementById("caught").checked = mypoke.caught;
+			caughtCurrent = mypoke.caught;
+			if(mypoke.caught){
+				document.getElementById("iconCaught").src = 'img/pokeball3.gif'
+			}else{
+				document.getElementById("iconCaught").src = 'img/pokeball3-grey.gif'
+			}
 			document.getElementById("nbCandies").value = mypoke.nbCandies;
 			if(mypoke.myfavs != undefined){
 				$.each(mypoke.myfavs.myfav, function(key, myfav){
@@ -286,17 +301,17 @@ function addFavorite(){
 	input.setAttribute('type', 'number');
 	input.setAttribute('id', 'PC'+favCount);
 	input.style.width = '50px'
-//	input.setAttribute('onchange', function(){
+//		input.setAttribute('onchange', function(){
 //		changeOccured();
 //		console.log('change')
-//	});
-	input.addEventListener('change', function(){
-		changeOccured();
-		console.log('change')
-	});
+//		});
+		input.addEventListener('change', function(){
+			changeOccured();
+			console.log('change')
+		});
 	td.appendChild(input)
 	tr.appendChild(td)
-	
+
 	td = document.createElement('td');
 	input = document.createElement('input');
 	input.setAttribute('type', 'checkbox');
@@ -312,11 +327,11 @@ function addFavorite(){
 	input.setAttribute('id', 'quickmove'+favCount);
 	var option = document.createElement('option');
 	option.value = 'blank'
-	input.appendChild(option)
-	input.addEventListener('change', function(){
-		changeOccured();
-		hideBlank(input)
-	});
+		input.appendChild(option)
+		input.addEventListener('change', function(){
+			changeOccured();
+			hideBlank(input)
+		});
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -325,11 +340,11 @@ function addFavorite(){
 	input.setAttribute('id', 'chargemove'+favCount);
 	option = document.createElement('option');
 	option.value = 'blank'
-	input.appendChild(option)
-	input.addEventListener('change', function(){
-		changeOccured();
-		hideBlank(input)
-	});
+		input.appendChild(option)
+		input.addEventListener('change', function(){
+			changeOccured();
+			hideBlank(input)
+		});
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -340,9 +355,9 @@ function addFavorite(){
 	suppr.setAttribute('onclick','changeOccured();removeFavorite('+favCount+');');
 	td.appendChild(suppr)
 	tr.appendChild(td)
-	
+
 	document.getElementById('table-body').appendChild(tr);
-	
+
 	addQuickMovestoDropDown(favCount, currentPokemonID);
 	addChargeMovestoDropDown(favCount, currentPokemonID);
 	favIDs.push(favCount);
@@ -373,10 +388,10 @@ function appendFavorite(myfav, pokemonID){
 	input.setAttribute('type', 'number');
 	input.setAttribute('id', 'PC'+favCount);
 	input.style.width = '50px'
-	input.setAttribute('value', myfav.PC);
+		input.setAttribute('value', myfav.PC);
 //	input.setAttribute('onchange', function(){
-//		changeOccured();
-//		console.log('change')
+//	changeOccured();
+//	console.log('change')
 //	});
 	input.addEventListener('change', function(){
 		changeOccured();
@@ -384,7 +399,7 @@ function appendFavorite(myfav, pokemonID){
 	});
 	td.appendChild(input)
 	tr.appendChild(td)
-	
+
 	td = document.createElement('td');
 	input = document.createElement('input');
 	input.setAttribute('type', 'checkbox');
@@ -496,13 +511,27 @@ function back(){
 }
 
 function prevPokemon(){
-	document.getElementById('submitButton').style.color = 'black';
-	loadMyPokemon(parseInt(currentPokemonID) - 1)
+	if(currentPokemonID>1){
+		document.getElementById('submitButton').style.color = 'black';
+		loadMyPokemon(parseInt(currentPokemonID) - 1)
+	}
 }
 
 function nextPokemon(){
-	document.getElementById('submitButton').style.color = 'black';
-	loadMyPokemon(parseInt(currentPokemonID) + 1)
+	if(currentPokemonID < pokemonsData.length){
+		document.getElementById('submitButton').style.color = 'black';
+		loadMyPokemon(parseInt(currentPokemonID) + 1)
+	}
+}
+
+function toggleCaught(){
+	console.log(currentPokemonID)
+	caughtCurrent = !caughtCurrent;
+	if(caughtCurrent){
+		document.getElementById("iconCaught").src = 'img/pokeball3.gif'
+	}else{
+		document.getElementById("iconCaught").src = 'img/pokeball3-grey.gif'
+	}
 }
 
 
