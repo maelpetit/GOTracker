@@ -300,25 +300,19 @@ function addFavorite(){
 	var input = document.createElement('input');
 	input.setAttribute('type', 'number');
 	input.setAttribute('id', 'PC'+favCount);
-	input.style.width = '50px'
-//		input.setAttribute('onchange', function(){
-//		changeOccured();
-//		console.log('change')
-//		});
-		input.addEventListener('change', function(){
-			changeOccured();
-			console.log('change')
-		});
+	input.style.width = '50px';
+	input.addEventListener('change', function(){
+		changeOccured();
+	});
 	td.appendChild(input)
 	tr.appendChild(td)
 
 	td = document.createElement('td');
-	input = document.createElement('input');
-	input.setAttribute('type', 'checkbox');
+	input = document.createElement('img');
 	input.setAttribute('id', 'wonder'+favCount);
-	input.addEventListener('change', function(){
-		changeOccured();
-	});
+	input.setAttribute('wonder', false)
+	input.src = 'img/star-grey.gif';
+	input.setAttribute('onclick', 'toggleWonder("wonder'+favCount+'");changeOccured();');
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -368,7 +362,13 @@ function removeFavorite(idFav){
 	var fav = document.getElementById("fav" + idFav);
 	fav.innerHTML = "";
 	fav.parentNode.removeChild(fav);
-	favIDs.splice(idFav, 1);
+	var temp = [];
+	for(var ifav = 0; ifav < favIDs.length; ifav++){
+		if(favIDs[ifav] != idFav){
+			temp.push(favIDs[ifav]);
+		}
+	}
+	favIDs = temp;
 }
 
 function appendFavorite(myfav, pokemonID){
@@ -387,27 +387,20 @@ function appendFavorite(myfav, pokemonID){
 	var input = document.createElement('input');
 	input.setAttribute('type', 'number');
 	input.setAttribute('id', 'PC'+favCount);
-	input.style.width = '50px'
-		input.setAttribute('value', myfav.PC);
-//	input.setAttribute('onchange', function(){
-//	changeOccured();
-//	console.log('change')
-//	});
+	input.style.width = '50px';
+	input.setAttribute('value', myfav.PC);
 	input.addEventListener('change', function(){
 		changeOccured();
-		console.log('change')
 	});
 	td.appendChild(input)
 	tr.appendChild(td)
 
 	td = document.createElement('td');
-	input = document.createElement('input');
-	input.setAttribute('type', 'checkbox');
+	input = document.createElement('img');
 	input.setAttribute('id', 'wonder'+favCount);
-	input.checked = myfav.wonder;
-	input.addEventListener('change', function(){
-		changeOccured();
-	});
+	input.setAttribute('wonder', myfav.wonder)
+	input.src = myfav.wonder ? 'img/star.gif' : 'img/star-grey.gif';
+	input.setAttribute('onclick', 'toggleWonder("wonder'+favCount+'");changeOccured();');
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -497,9 +490,9 @@ function addChargeMovestoDropDown(favC, pokemonID){
 }
 
 function changeOccured(){
-	document.getElementById("submitButton").style.color="red";
+//	document.getElementById("submitButton").style.color="red";
 	unsavedchanges = true;
-
+//	console.log('change !')
 }
 
 
@@ -525,12 +518,23 @@ function nextPokemon(){
 }
 
 function toggleCaught(){
-	console.log(currentPokemonID)
 	caughtCurrent = !caughtCurrent;
 	if(caughtCurrent){
 		document.getElementById("iconCaught").src = 'img/pokeball3.gif'
 	}else{
 		document.getElementById("iconCaught").src = 'img/pokeball3-grey.gif'
+	}
+}
+
+function toggleWonder(wonderIcon){
+	var image = document.getElementById(wonderIcon);
+	var wonder = image.getAttribute('wonder');
+	if(wonder == 'true'){
+		image.setAttribute('wonder', 'false');
+		image.src = 'img/star-grey.gif'
+	}else{
+		image.setAttribute('wonder', 'true');
+		image.src = 'img/star.gif'
 	}
 }
 
