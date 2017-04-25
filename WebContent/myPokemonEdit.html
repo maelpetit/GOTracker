@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/GOtracker.css" />
 <title>GOTracker</title>
 </head>
 <body>
@@ -10,34 +11,33 @@
 	</div>
 	<div id="pokemonListContainer">
 		<div id="leftspacer"
-			style="position: relative; width: 0%; float: left">&nbsp;</div>
+			style="position: relative; width: 5%; float: left">&nbsp;</div>
 		<div id="pokemonList"
-			style="position: relative; width: 100%; float: left"></div>
-		<div id="rightspacer"
-			style="position: relative; width: 0%; float: left"></div>
-	</div>
-	<div id="mypokemon" hidden=true align="center">
-		<button onclick="javacript:prevPokemon()">Prev</button>
-		<button onclick="javacript:back()">Back</button>
-		<button onclick="javacript:nextPokemon()">Next</button>
-		<div id="nameDiv">
-			<label>Pokemon : </label><label id="pokemonName"></label>
+			style="position: relative; width: 70%; float: left"></div>
+		<div id="mypokemon" hidden=true align="center"
+			style="width: 25%; float: right; position:fixed; right:10px">
+			<button class ="button" onclick="prevPokemon()">Prev</button>
+			<button class ="button alt" onclick="back()">Back</button>
+			<button class ="button" onclick="nextPokemon()">Next</button>
+			<div id="nameDiv">
+				<label>Pokemon : </label><label id="pokemonName"></label>
+			</div>
+			<div>
+				<img id="image">
+			</div>
+			<div id="caughtDiv">
+				<label>Caught ?</label> <input type="checkbox" id="caught"
+					onchange="javascript:changeOccured();">
+			</div>
+			<div id="nbCandiesDiv">
+				<label>Number of candies</label> <input type="number" id="nbCandies"
+					onchange="javascript:changeOccured();">
+			</div>
+			<div id="favDiv">Favorites</div>
+			<div id="favorites"></div>
+			<button type="button" id="submitButton">Save Changes For
+				This Pokemon</button>
 		</div>
-		<div>
-			<img id="image">
-		</div>
-		<div id="caughtDiv">
-			<label>Caught ?</label> <input type="checkbox" id="caught"
-				onchange="javascript:changeOccured();">
-		</div>
-		<div id="nbCandiesDiv">
-			<label>Number of candies</label> <input type="number" id="nbCandies"
-				onchange="javascript:changeOccured();">
-		</div>
-		<div id="favDiv">Favorites</div>
-		<div id="favorites"></div>
-		<button type="button" id="submitButton">Save Changes For This
-			Pokemon</button>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"

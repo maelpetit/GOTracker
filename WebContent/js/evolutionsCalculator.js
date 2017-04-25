@@ -4,48 +4,46 @@ var host = window.location.host;
 var rootURL = "http://" + host + "/GOTracker";
 var login = localStorage.getItem("login");
 var currentPokemon = null;
+var loaded 
 
-$(function() {
-
-	console.log(login);
-
-	$.ajax({
-		type : 'GET',
-		url : rootURL + '/tracker/pokemons',
-		dataType : "json",
-		success : function(data) {
-			if (null != data) {
-				pokemonsData = data;
-				$.each(data, function(key, poke){
-					if(poke.evolutions.evolution.length !=  0){
-						addPokemonToList(poke);
-					}
-				});
-			}
-
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('getUser error: ' + textStatus);
+$.ajax({
+	type : 'GET',
+	url : rootURL + '/tracker/pokemons',
+	dataType : "json",
+	success : function(data) {
+		if (null != data) {
+			pokemonsData = data;
+			console.log(pokemonsData)
+			$.each(data, function(key, poke){
+				if(poke.evolutions.evolution.length !=  0){
+					addPokemonToList(poke);
+				}
+			});
 		}
-	});
 
-	$.ajax({
-		type : 'GET',
-		url : rootURL + "/tracker/users/" + login,
-		dataType : "json",
-		success : function(data) {
-			if (null != data) {
-				userData = data;
-				$('#username').append(data.username);
-			}
-
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('getUser error: ' + textStatus);
-		}
-	});
-
+	},
+	error : function(jqXHR, textStatus, errorThrown) {
+		console.log('getUser error: ' + textStatus);
+	}
 });
+
+$.ajax({
+	type : 'GET',
+	url : rootURL + "/tracker/users/" + login,
+	dataType : "json",
+	success : function(data) {
+		if (null != data) {
+			userData = data;
+			$('#username').append(data.username);
+		}
+
+	},
+	error : function(jqXHR, textStatus, errorThrown) {
+		console.log('getUser error: ' + textStatus);
+	}
+});
+
+console.log(login);
 
 function getPokemon(pokemonID){
 	var pokemon = null;
@@ -72,7 +70,6 @@ function addPokemonToList(poke){
 	starDiv.style.height = '0px';
 	starDiv.style.width = '0px';
 	starDiv.style.float = 'left';
-	var mypokemon = getMyPokemon(poke.pokemonID);
 	$.each(poke.evolutions.evolution, function(key, evol){
 		var src = '';
 		if(evol.item == 'KINGS_ROCK'){

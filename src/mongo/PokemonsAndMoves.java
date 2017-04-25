@@ -25,10 +25,10 @@ public class PokemonsAndMoves {
 	private static boolean init_done = false;
 	
 	public static final PokemonsAndMoves getInstance() {
-		if(!init_done){
-			init_done = true;
-			INSTANCE._init();
-		}
+//		if(!init_done){
+//			init_done = true;
+//			INSTANCE._init();
+//		}
 		return INSTANCE;
 	}
 	
