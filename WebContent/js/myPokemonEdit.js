@@ -152,6 +152,7 @@ function editMyPokemon(){
 			document.getElementById('submitButton').style.color = 'green';
 			$.each(userData.mypokemons.mypokemon, function(key, mypoke){
 				unsavedchanges = false;
+				document.getElementById("submitButton").className='button special';
 				if(mypoke.pokemonID == currentPokemonID){
 					mypoke.nbCandies = nbCandies;
 					mypoke.caught = caught;
@@ -252,12 +253,12 @@ function loadMyPokemon(pokemonID){
 	if(unsavedchanges){
 		if (confirm("Discard Unsaved Changes ?") == true) {
 			unsavedchanges = false;
-			//document.getElementById('submitButton').style.color = 'black';
+			document.getElementById("submitButton").className='button special';
 		}else{return}
 	}
 	currentPokemonID = pokemonID;
 	if(currentPokemonID <= 1){
-		console.log(currentPokemonID)
+//		console.log(currentPokemonID)
 		document.getElementById("prevButton").setAttribute('hidden', true);
 	}else if(currentPokemonID >= pokemonsData.length){
 		document.getElementById("nextButton").hidden = true;
@@ -295,6 +296,7 @@ function loadMyPokemon(pokemonID){
 
 function addFavorite(){
 	var tr = document.createElement('tr');
+	tr.setAttribute('align','center');
 	tr.id = "fav"+favCount;
 	var td = document.createElement('td');
 	var input = document.createElement('input');
@@ -313,6 +315,8 @@ function addFavorite(){
 	input.setAttribute('wonder', false)
 	input.src = 'img/star-grey.gif';
 	input.setAttribute('onclick', 'toggleWonder("wonder'+favCount+'");changeOccured();');
+	input.setAttribute('onmouseenter', 'dimImage("wonder'+favCount+'");');
+	input.setAttribute('onmouseleave', 'undimImage("wonder'+favCount+'");');
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -330,16 +334,16 @@ function addFavorite(){
 	tr.appendChild(td)
 
 	td = document.createElement('td');
-	input = document.createElement('select');
-	input.setAttribute('id', 'chargemove'+favCount);
+	var inputCharge = document.createElement('select');
+	inputCharge.setAttribute('id', 'chargemove'+favCount);
 	option = document.createElement('option');
 	option.value = 'blank'
-		input.appendChild(option)
-		input.addEventListener('change', function(){
+		inputCharge.appendChild(option)
+		inputCharge.addEventListener('change', function(){
 			changeOccured();
-			hideBlank(input)
+			hideBlank(inputCharge)
 		});
-	td.appendChild(input)
+	td.appendChild(inputCharge)
 	tr.appendChild(td)
 
 	td = document.createElement('td');
@@ -382,6 +386,7 @@ function appendFavorite(myfav, pokemonID){
 	</tr>
 	 */
 	var tr = document.createElement('tr');
+	tr.setAttribute('align','center');
 	tr.id = "fav"+favCount;
 	var td = document.createElement('td');
 	var input = document.createElement('input');
@@ -401,6 +406,8 @@ function appendFavorite(myfav, pokemonID){
 	input.setAttribute('wonder', myfav.wonder)
 	input.src = myfav.wonder ? 'img/star.gif' : 'img/star-grey.gif';
 	input.setAttribute('onclick', 'toggleWonder("wonder'+favCount+'");changeOccured();');
+	input.setAttribute('onmouseenter', 'dimImage("wonder'+favCount+'");');
+	input.setAttribute('onmouseleave', 'undimImage("wonder'+favCount+'");');
 	td.appendChild(input)
 	tr.appendChild(td)
 
@@ -490,7 +497,7 @@ function addChargeMovestoDropDown(favC, pokemonID){
 }
 
 function changeOccured(){
-//	document.getElementById("submitButton").style.color="red";
+	document.getElementById("submitButton").className='button unsavedchanges';
 	unsavedchanges = true;
 //	console.log('change !')
 }
@@ -515,6 +522,16 @@ function nextPokemon(){
 		document.getElementById('submitButton').style.color = 'black';
 		loadMyPokemon(parseInt(currentPokemonID) + 1)
 	}
+}
+
+function dimImage(imageName){
+	var image = document.getElementById(imageName);
+	image.style.filter = 'brightness(70%)';
+}
+
+function undimImage(imageName){
+	var image = document.getElementById(imageName);
+	image.style.filter = 'brightness(100%)';
 }
 
 function toggleCaught(){

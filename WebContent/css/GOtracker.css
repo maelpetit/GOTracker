@@ -115,7 +115,7 @@
 		input[type="reset"].special,
 		input[type="button"].special,
 		.button.special {
-			background-color: #b22222;
+			background-color: #4f9b3e;
 			color: #ffffff !important;
 		}
 
@@ -123,15 +123,38 @@
 			input[type="reset"].special:hover,
 			input[type="button"].special:hover,
 			.button.special:hover {
-				background-color: #CE715F;
+				background-color: #5fa54f;
 			}
 
 			input[type="submit"].special:active,
 			input[type="reset"].special:active,
 			input[type="button"].special:active,
 			.button.special:active {
+				background-color: #5fa54f;
+			}
+			
+		input[type="submit"].unsavedchanges,
+		input[type="reset"].unsavedchanges,
+		input[type="button"].unsavedchanges,
+		.button.unsavedchanges {
+			background-color: #b22222;
+			color: #ffffff !important;
+		}
+
+			input[type="submit"].unsavedchanges:hover,
+			input[type="reset"].unsavedchanges:hover,
+			input[type="button"].unsavedchanges:hover,
+			.button.unsavedchanges:hover {
 				background-color: #CE715F;
 			}
+
+			input[type="submit"].unsavedchanges:active,
+			input[type="reset"].unsavedchanges:active,
+			input[type="button"].unsavedchanges:active,
+			.button.unsavedchanges:active {
+				background-color: #CE715F;
+			}
+
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
 		input[type="reset"].disabled,
@@ -147,12 +170,138 @@
 			opacity: 0.25;
 		}
 		
-/* test */
+		/* Table */
 
-.test{
-	position:relative;
-	vertical-align:middle;
-	margin:auto;
-	height:300px;
-	width:300px;
+	.table-wrapper {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
+
+	table {
+		margin: 0 0 2.25em 0;
+		width: 100%;
+	}
+
+		table tbody tr {
+			border: solid 2px #f4f4f4;
+			border-left: 0;
+			border-right: 0;
+		}
+
+			table tbody tr:nth-child(2n + 1) {
+				background-color: #fafafa;
+			}
+
+		table td {
+			padding: 0.75em 0.75em;
+		}
+
+		table th {
+			color: #777;
+			font-size: 0.9em;
+			font-weight: 700;
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: left;
+		}
+
+		table thead {
+			border-bottom: solid 4px #e4e4e4;
+		}
+
+		table tfoot {
+			border-top: solid 4px #e4e4e4;
+		}
+
+		table.alt {
+			border-collapse: separate;
+		}
+
+			table.alt tbody tr td {
+				border: solid 2px #e4e4e4;
+				border-left-width: 0;
+				border-top-width: 0;
+			}
+
+				table.alt tbody tr td:first-child {
+					border-left-width: 2px;
+				}
+
+			table.alt tbody tr:first-child td {
+				border-top-width: 2px;
+			}
+
+			table.alt thead {
+				border-bottom: 0;
+			}
+
+			table.alt tfoot {
+				border-top: 0;
+			}
+			
+/* input */
+			
+input, select, number {
+		color: #888;
+		font-family: "Lato", sans-serif;
+		font-size: 1em;
+		font-weight: 400;
+		line-height: 1em;
 }
+
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="number"],
+	select,
+	textarea {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		border-radius: 5px;
+		border: none;
+		border: solid 2px #e4e4e4;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 0.5em;
+		text-decoration: none;
+		width: 100%;
+	}
+
+		input[type="text"]:invalid,
+		input[type="password"]:invalid,
+		input[type="email"]:invalid,
+		select:invalid,
+		input[type="number"]:invalid,
+		textarea:invalid {
+			box-shadow: none;
+		}
+
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus,
+		select:focus,
+		input[type="number"]:focus,
+		textarea:focus {
+			border-color: #b22222;
+		}
+
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="number"],
+	select {
+		height: 2em;
+	}
+ 
+	textarea {
+		padding: 0.75em 1em;
+	}
+ 	

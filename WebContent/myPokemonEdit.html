@@ -6,9 +6,24 @@
 <title>GOTracker</title>
 </head>
 <body>
-	<div align="center">
-		<label>Username : </label> <label id="username"></label>
-	</div>
+	<header>
+		<div id="leftspacerheader"
+			style="position: relative; width: 5%; float: left">&nbsp;</div>
+			<div style="position: relative; width: 95%; float: left">
+		<table>
+		<tr>
+		<td>
+		</td>
+		<td>
+			<h2 id="username" style=""></h2>
+			</td><td>
+			<img alt="" src="img/pokeball3.gif">
+			</td>
+			</tr>
+		</table>
+		</div>
+	</header>
+
 	<div id="pokemonListContainer">
 		<div id="leftspacer"
 			style="position: relative; width: 5%; float: left">&nbsp;</div>
@@ -16,14 +31,18 @@
 			style="position: relative; width: 60%; float: left"></div>
 		<div id="mypokemon" hidden=true align="center"
 			style="width: 35%; float: right; position: fixed; right: 10px">
-			<label id="pokemonNumber" style="vertical-align:middle"></label>
-			<img id="iconCaught" onclick="toggleCaught();changeOccured();" style="margin:10px;vertical-align:middle"><br>
-			<img id="image" style="height:147px;min-width:70px;"> <!-- ratio height/width max = 2.1 -->
-			
-			
+			<label id="pokemonNumber" style="vertical-align: middle"></label> <img
+				id="iconCaught" onclick="toggleCaught();changeOccured();"
+				onmouseenter="dimImage('iconCaught');"
+				onmouseleave="undimImage('iconCaught')"
+				style="margin: 10px; vertical-align: middle"><br> <img
+				id="image" style="height: 147px; min-width: 70px;">
+			<!-- ratio height/width max = 2.1 -->
+
+
 			<table id="pokemonNextPrev">
 				<tbody>
-					<tr>
+					<tr align="center">
 						<td id="prevButton">
 							<button class="button" onclick="prevPokemon()">&#60;</button> <!-- <button class ="button alt" onclick="back()">Back</button> -->
 						</td>
@@ -35,14 +54,22 @@
 				</tbody>
 			</table>
 			<div id="nbCandiesDiv">
-				<label>Number of candies</label> <input type="number" id="nbCandies"
-					onchange="javascript:changeOccured();">
+				<table>
+					<tr>
+						<td><input type="number" id="nbCandies"
+							onchange="javascript:changeOccured();"></td>
+						<td><img style="width:50px"
+							src="https://assets-lmcrhbacy2s.stackpathdns.com/img/icons/candy.png">
+						</td>
+					</tr>
+				</table>
+
 			</div>
 			<div id="favorites">
 				<div class="table-wrapper">
 					<table>
 						<thead>
-							<tr>
+							<tr align="center">
 								<th>PC</th>
 								<th>Wonder</th>
 								<th>Quickmove</th>
