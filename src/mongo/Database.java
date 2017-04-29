@@ -92,6 +92,7 @@ public class Database {
 		}
 	}
 	
+	//TODO modifier le fichier init_pokedex.json pour inclure nbPokemons
 	@SuppressWarnings("unchecked")
 	public static void init_pokedex(String login){
 		Logger.getGlobal().info("Initializing pokedex for user " + login + " ...");

@@ -15,6 +15,7 @@ public class MyPokemon {
 	private String pokemonID = null;
 	private Boolean caught = null;
 	private Integer nbCandies = null;
+	private Integer nbPokemons = null;
 
 	@XmlElement(name = "myfavs")
 	private FavPokemonWrapper favs = null;
@@ -46,6 +47,14 @@ public class MyPokemon {
 	}
 	public void setNbCandies(int nbCandies) {
 		this.nbCandies = nbCandies;
+	}
+
+	public Integer getNbPokemons() {
+		return nbPokemons;
+	}
+
+	public void setNbPokemons(Integer nbPokemons) {
+		this.nbPokemons = nbPokemons;
 	}
 
 	public String getPokemonID() {

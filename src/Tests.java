@@ -12,7 +12,9 @@ import javax.ws.rs.core.MediaType;
 import org.bson.Document;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCursor;
 
 import mongo.Database;
 import mongo.DatabaseUpdater;
@@ -28,9 +30,21 @@ public class Tests {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException, FileNotFoundException {
 		
-		User user = new User("jules", "Boom", Role.ADMIN);
-		user.setPasswordHashWithPassword("bite");
-		Database.addUser(user.getUserDocument());
+		Document doc, doc1, filter = new Document(); filter.put("number", "000");
+		MongoCursor<Document> cursor = Database.getPokedexCollection("martin").find().iterator();
+		while(cursor.hasNext()){
+			doc = cursor.next();
+			System.out.println(doc.toJson());
+			doc1 = new Document();
+			filter.replace("number", doc.get("number"));
+			doc1.put("number", doc.getString("number"));
+			doc1.put("caught", doc.getBoolean("caught"));
+			doc1.put("nbcandies", doc.getInteger("nbcandies"));
+			doc1.put("favs", doc.get("favs"));
+			doc1.append("nbPokemons", 0);
+			System.out.println(doc1.toJson());System.out.println(filter.toJson());
+			Database.getPokedexCollection("martin").replaceOne(filter, doc1);
+		}
 		
 		Database.closeMongoClient();
 		

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <link rel="stylesheet" href="css/GOtracker.css" />
 <title>GOTracker</title>
 </head>
@@ -10,7 +10,7 @@
 		<div id="leftspacerheader"
 			style="position: relative; width: 5%; float: left">&nbsp;</div>
 			<div style="position: relative; width: 95%; float: left">
-		<table>
+		<table style="heigth:6%">
 		<tr>
 		<td>
 		</td>
@@ -29,9 +29,10 @@
 			style="position: relative; width: 5%; float: left">&nbsp;</div>
 		<div id="pokemonList"
 			style="position: relative; width: 60%; float: left"></div>
-		<div id="mypokemon" hidden=true align="center"
-			style="width: 35%; float: right; position: fixed; right: 10px">
-			<label id="pokemonNumber" style="vertical-align: middle"></label> <img
+		<div id="mypokemon" hidden align="center"
+			style="width: 35%; float: right; position: fixed; right: 10px; top:10%">
+			<label id="pokemonNumber" style="vertical-align: middle"></label> 
+                        <img    src="" alt=""
 				id="iconCaught" onclick="toggleCaught();changeOccured();"
 				onmouseenter="dimImage('iconCaught');"
 				onmouseleave="undimImage('iconCaught')"
@@ -58,8 +59,7 @@
 					<tr>
 						<td><input type="number" id="nbCandies"
 							onchange="javascript:changeOccured();"></td>
-						<td><img style="width:50px"
-							src="https://assets-lmcrhbacy2s.stackpathdns.com/img/icons/candy.png">
+						<td><img id="candyImg" alt="Candy" style="width:50px;">
 						</td>
 					</tr>
 				</table>

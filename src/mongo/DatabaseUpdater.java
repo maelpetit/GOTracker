@@ -92,6 +92,7 @@ public class DatabaseUpdater {
 		mypokemonDoc.put("number", mypokemon.getPokemonID());
 		mypokemonDoc.put("caught", mypokemon.isCaught());
 		mypokemonDoc.put("nbcandies", mypokemon.getNbCandies());
+		mypokemonDoc.put("nbPokemons", mypokemon.getNbPokemons());
 
 		if(mypokemon.getFavs() != null){
 

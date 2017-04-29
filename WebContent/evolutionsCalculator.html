@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="windows-1252">
+<link rel="stylesheet" href="css/GOtracker.css" />
 <title>Evolutions Calculator</title>
 </head>
 <body>
 
-	<h1 align="center">Evolutions Calculator</h1>
-		<div align="center">
-			<label>Username : </label> <label id="username"></label>
+	<header>
+		<div id="leftspacerheader"
+			style="position: relative; width: 5%; float: left">&nbsp;</div>
+		<div style="position: relative; width: 95%; float: left">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<h2 id="username" style=""></h2>
+					</td>
+					<td><img alt="" src="img/pokeball3.gif"></td>
+				</tr>
+			</table>
 		</div>
+	</header>
 	<div id="pokemonListContainer">
 		<div id="leftspacer"
-			style="position: relative; width: 25%; float: left">&nbsp;</div>
+			style="position: relative; width: 5%; float: left">&nbsp;</div>
 		<div id="pokemonList" align="center"
-			style="position: relative; width: 50%; float: left">
+			style="position: relative; width: 60%; float: left"></div>
+		<div id="singlePokemonContainer" hidden align="center"
+			style="width: 35%; float: right; position: fixed; right: 10px; top: 15%">
+			<label id="pokemonNumber" style="vertical-align: middle"></label> <img
+				src="" alt="" id="iconCaught"
+				onclick="toggleCaught();changeOccured();"
+				onmouseenter="dimImage('iconCaught');"
+				onmouseleave="undimImage('iconCaught')"
+				style="margin: 10px; vertical-align: middle"><br> <img
+				id="pokemon_gif" style="height: 147px; min-width: 70px;">
+			<table id="pokemonNextPrev">
+				<tr align="center">
+					<td id="prevButton">
+						<button class="button" onclick="prevPokemon()">&#60;</button> <!-- <button class ="button alt" onclick="back()">Back</button> -->
+					</td>
+					<td id="pokemonName"></td>
+					<td id="nextButton">
+						<button class="button" onclick="nextPokemon()">&#62;</button>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td style="width: 3.5em"><input type="number" id="nbPokemons"
+						onchange="javascript:changeOccured();" autofocus></td>
+					<td><img id="pokemonImg" alt="pokemon" style="width: 50px;">
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 3.5em"><input type="number" id="nbCandies"
+						onchange="javascript:changeOccured();canEvolve();"></td>
+					<td><img id="candyImg" alt="Candy"
+						style="width: 50px; filter: grayscale(90%)"></td>
+				</tr>
+			</table>
+			<div>
+				<button class="button"
+					onclick="computeEvolutionsAndDisplayListEvols();">List</button>
+			</div>
 		</div>
-		<div id="rightspacer"
-			style="position: relative; width: 25%; float: left"></div>
-	</div>
-	<div id="singlePokemonContainer" hidden=true align="center">
-		<button onclick="javacript:prevPokemon()" style="margin:1px;border-radius:2px;">Prev</button>
-		<button onclick="javacript:back()" style="margin:1px;border-radius:2px;">Back</button>
-		<button onclick="javacript:nextPokemon()" style="margin:1px;border-radius:2px;">Next</button><br>
-		<img id="pokemon_gif" style="margin:1px;border-radius:2px;" alt="poke_gif">
+		<div id="evolsDiv" hidden style="width: 35%; float: left">
+			<table id="listEvols">
+
+			</table>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 		crossorigin="anonymous"></script>
 	<script src="js/evolutionsCalculator.js"></script>
 

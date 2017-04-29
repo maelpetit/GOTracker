@@ -50,7 +50,7 @@ public class UserList {
 		User user;
 		MyPokemon myPokemon;
 		FavPokemon favPokemon;
-		int nbCandies, PC;
+		int nbCandies, PC, nbPokemons;
 		boolean caught, wonder;
 		while(cursor.hasNext()){
 			document = cursor.next();
@@ -68,7 +68,9 @@ public class UserList {
 				pokemonID = pokedexEntry.getString("number");
 				caught = pokedexEntry.getBoolean("caught");
 				nbCandies = pokedexEntry.getInteger("nbcandies");
+				nbPokemons = pokedexEntry.getInteger("nbPokemons");
 				myPokemon = new MyPokemon(pokemonID, caught, nbCandies);
+				myPokemon.setNbPokemons(nbPokemons);
 				favs = (List<Document>) pokedexEntry.get("favs");
 				for (Document fav : favs) {
 					PC = fav.getInteger("pc");

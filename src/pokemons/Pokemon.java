@@ -26,6 +26,8 @@ public class Pokemon {
 	@XmlElementWrapper(name="types")
 	@XmlElement(name="type")
 	private Types[] types;
+	
+	private String species;
 	private String image_url;
 	private String gif_url;
 	
@@ -102,6 +104,14 @@ public class Pokemon {
 	
 	public Types[] getTypes() {
 		return types;
+	}
+
+	public String getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(String species) {
+		this.species = species;
 	}
 
 	public String getImage_url() {

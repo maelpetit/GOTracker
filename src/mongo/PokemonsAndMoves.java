@@ -72,7 +72,7 @@ public class PokemonsAndMoves {
 		List<Document> quickmoves, chargemoves, nextEvols;
 		Map<Pokemon, List<Document>> mapEvols = new HashMap<>(); 
 		Pokemon pokemon;
-		String pokeID, name;
+		String pokeID, name, species;
 		Types[] types;
 		MongoCursor<Document> cursor = Database.getPokemonsCollection().find().iterator();
 		while(cursor.hasNext()){
@@ -80,11 +80,12 @@ public class PokemonsAndMoves {
 			pokeID = pokemonDoc.getString("number");
 			name = pokemonDoc.getString("name");
 			types = getTypesFromList((List<String>) pokemonDoc.get("types"));
-			
+			species = pokemonDoc.getString("species");
 			quickmoves = ((List<Document>) pokemonDoc.get("quick moves"));
 			chargemoves = ((List<Document>) pokemonDoc.get("charge moves"));
 			
 			pokemon = new Pokemon(pokeID, name, types, quickmoves, chargemoves);
+			pokemon.setSpecies(species);
 			
 			nextEvols = (List<Document>) pokemonDoc.get("next evolutions");
 			if(nextEvols != null){

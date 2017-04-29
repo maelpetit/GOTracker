@@ -4,6 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import mongo.Database;
 import mongo.PokemonsAndMoves;
 import users.UserList;
 
@@ -15,6 +16,6 @@ public class Config implements ServletContextListener {
         UserList.getInstance();
     }
     public void contextDestroyed(ServletContextEvent event) {
-        // Do your thing during webapp's shutdown.
+        Database.closeMongoClient();
     }
 }

@@ -30,6 +30,8 @@ $(function() {
 
 });
 
+
+
 var host = window.location.host;
 var rootURL = "http://" + host + "/GOTracker";
 var login = localStorage.getItem("login");
@@ -269,6 +271,7 @@ function loadMyPokemon(pokemonID){
 	}
 	var pokemon = getPokemon(pokemonID)
 	var image = document.getElementById("image");
+	document.getElementById('candyImg').src = 'img/candy/' + pokemon.species + '_candy.png';
 	image.src = pokemon.gif_url;
 	document.getElementById("pokemonNumber").innerHTML = '#' + pokemon.pokemonID
 	document.getElementById("pokemonName").innerHTML = capitalizeFirstLetter(pokemon.name)
